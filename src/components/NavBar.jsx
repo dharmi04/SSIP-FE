@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import hamburger from '../assets/hamburger.svg';
+import cross from '../assets/cross.svg'
+import account from '../assets/account.svg'
 // import {account} from '../assets/account.svg' 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,41 +20,52 @@ function NavBar() {
                 /> */}
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-4 text-xl">
+                
                   <a
                     href="#"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md  font-medium"
                   >
-                    Dashboard
+                   Home
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md  font-medium"
                   >
-                    Team
+                    Cart
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                    Projects
+                    Product
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                    Calendar
+                    Account
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                    Reports
+                    Account
                   </a>
+                                  <a
+                  href="#"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Account
+                </a>
+                  {/* <div className="relative">
+                  <img src={account} style={{ width: '200px', height: '200px' }} alt="account" className="ml-10 p-2" />
+                  </div> */}
+                  
                 </div>
               </div>
             </div>
@@ -68,8 +81,11 @@ function NavBar() {
                 {!isOpen ? (
                   <img src={hamburger} alt="hamburger" />
                 ) : (
-                    <img src={hamburger} alt="hamburger" />
+                    <img src={cross} alt="cross" />
                 )}
+              </button>
+              <button className="relative">
+                <img src={account} alt="account" className="absolute top-2 left-2" />
               </button>
             </div>
           </div>
@@ -92,29 +108,37 @@ function NavBar() {
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Team
+                  Home
                 </a>
 
                 <a
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Projects
+                  Cart
                 </a>
 
                 <a
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Calendar
+                  Product
                 </a>
 
                 <a
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Reports
+                  Account
                 </a>
+                <a
+                  href="#"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Account
+                </a>
+            
+                
               </div>
             </div>
           )}

@@ -6,7 +6,8 @@ export default {
       colors: {
         "primary": "#494B47",
         "accent": "#BB4F1D", // Added single quotes around the color value
-        "secondary": "#DBDBDB"
+        "secondary": "#DBDBDB",
+        "grey1":"#3D3E3C"
       }
     },
   },
