@@ -1,9 +1,17 @@
+import React from 'react';
+import Home from './Pages/Home';
+import Login from './components/Login';
+import Signup from './components/Signup';
+
+
 export default function App() {
   return (
-    <>
-      <div>
-        <h1 className="underline">SSIP 2023</h1>
-      </div>
-    </>
-  )
+    <div>
+     <div className="App">
+      <Home />
+    </div>
+    </div>
+    
+
+  );
 }
