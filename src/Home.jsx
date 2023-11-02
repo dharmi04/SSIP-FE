@@ -1,49 +1,65 @@
-import React from 'react'
-import 
-{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
- from 'react-icons/bs'
- import 
- { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
- from 'recharts';
- 
+
+import React from 'react';
+import {
+  BsFillArchiveFill,
+  BsFillGrid3X3GapFill,
+  BsPeopleFill,
+  BsFillBellFill,
+} from 'react-icons/bs';
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+} from 'recharts';
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
 
 function Home() {
-
     const data = [
         {
-          name: 'Page A',
-          v1: 4000,
-          v2: 2400,
+          name: 'Product 1',
+          2022: 4000,
+          2023: 2400,
           amt: 2400,
         },
         {
-          name: 'Page B',
-          v1: 3000,
-          v2: 1398,
+          name: 'Product 2',
+          2022: 3000,
+          2023: 1398,
           amt: 2210,
         },
         {
-          name: 'Page C',
-          v2: 2000,
-          v1: 9800,
+          name: 'Product 3',
+          2023: 2000,
+          2022: 9800,
           amt: 2290,
         },
         {
-          name: 'Page D',
-          v2: 1890,
-          v1: 4800,
+          name: 'Product 4',
+          2023: 1890,
+          2022: 4800,
           amt: 2181,
         },
         {
-          name: 'Page F',
-          v2: 2390,
-          v1: 3800,
+          name: 'Product 5',
+          2023: 2390,
+          2022: 3800,
           amt: 2500,
         },
         {
-          name: 'Page G',
-          v2: 3490,
-          v1: 4300,
+          name: 'Product 6',
+          2023: 3490,
+          2022: 4300,
           amt: 2100,
         },
       ];
@@ -104,36 +120,35 @@ function Home() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="v1" fill="#8884d8" />
-                <Bar dataKey="v2" fill="#82ca9d" />
+                <Bar dataKey="2022" fill="#8884d8" />
+                <Bar dataKey="2023" fill="#82ca9d" />
                 </BarChart>
             </ResponsiveContainer>
 
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}
-                >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="v1" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="v2" stroke="#82ca9d" />
-                </LineChart>
-            </ResponsiveContainer>
 
-        </div>
+        <ResponsiveContainer width='100%' height={400}>
+          <PieChart>
+            <Pie
+              data={data}
+              dataKey="2022" // Use "2022" as dataKey
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={80}
+              fill="#8884d8"
+              label
+            >
+              {data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
     </main>
-  )
+  );
 }
 
-export default Home
+export default Home;
