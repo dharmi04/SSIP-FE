@@ -12,7 +12,7 @@ const Explore = () => {
         <div className='flex flex-row space-x-4 items-baseline mt-15'>
             <img src={explore2} alt="pot"  className='flex w-[87px] h-[400px]'/>
             <img src={explore1} alt="design" className='flex w-[200px] h-[325px]' />
-            <img src={explore3} alt="pot" className='flex w-[87px] h-[400px]' />
+            <img src={explore3} alt="pot" className='flex w-[88px] h-[400px]' />
         </div>
       </div>
       <div className=' items-center justify-center'>

@@ -7,7 +7,8 @@ export default {
         "primary": "#494B47",
         "accent": "#BB4F1D", // Added single quotes around the color value
         "secondary": "#DBDBDB",
-        "grey1":"#3D3E3C"
+        "grey1":"#3D3E3C",
+        "grey2":"#DBDBDB"
       }
     },
   },
