@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "#494B47",
-        "accent": "#BB4F1D", // Added single quotes around the color value
-        "secondary": "#DBDBDB",
-        "grey1":"#3D3E3C",
-        "grey2":"#DBDBDB"
-      }
+        primary: "#494B47",
+        accent: "#BB4F1D", // Added single quotes around the color value
+        secondary: "#DBDBDB",
+        grey1: "#3D3E3C",
+        grey2: "rgba(219, 219, 219, 0.7)",
+      },
     },
   },
   plugins: [],

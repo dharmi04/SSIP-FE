@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("Popular")
   return (
-    <div>
+    <div className="bg-secondary">
       <div className="bg-primary rounded-bl-[70px] rounded-br-[70px]">
         <div>
           <NavBar />
@@ -102,7 +102,7 @@ const Home = () => {
         )}
         {selectedCategory === "Popular" && (
           <div
-            className="flex overflow-x-auto whitespace-nowrap w-full"
+            className="flex overflow-x-auto whitespace-nowrap w-full gap-4"
             //   className="flex gap-4 items-center justify-center mt-10 overflow-x-auto
             // flex-grow-0 flex-shrink-0"
           >
