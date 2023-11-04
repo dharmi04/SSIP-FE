@@ -1,24 +1,21 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
-import hamburger from '../assets/hamburger.svg';
-import cross from '../assets/cross.svg';
-import account from '../assets/account.svg';
+import React, { useState } from "react"
+import { Transition } from "@headlessui/react"
+import hamburger from "../assets/hamburger.svg"
+import cross from "../assets/cross.svg"
+import account from "../assets/account.svg"
+import { RxCross1 } from "react-icons/rx"
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="bg-primary w-full">
       <nav className="">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between w-full h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
-                  src={account}
-                  alt="Workflow"
-                />
+                {/* <img className="h-8 w-8" src={account} alt="Workflow" /> */}
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4 text-xl">
@@ -40,7 +37,7 @@ function NavBar() {
                     href="/dashboard"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                  My Dashboard
+                    My Dashboard
                   </a>
 
                   <a
@@ -52,7 +49,7 @@ function NavBar() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center justify-between w-full">
               <div className="flex items-center">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -66,13 +63,13 @@ function NavBar() {
                   {!isOpen ? (
                     <img src={hamburger} alt="hamburger" className="" />
                   ) : (
-                    <img src={cross} alt="cross" />
+                    // <img src={cross} alt="cross" />
+                    <RxCross1 />
                   )}
                 </button>
-
               </div>
 
-              {/* <img src={account} alt="account" className="ml-4" /> */}
+              <img src={account} alt="account" className="ml-4" />
             </div>
           </div>
         </div>
@@ -122,7 +119,7 @@ function NavBar() {
         </Transition>
       </nav>
     </div>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar
