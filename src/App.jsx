@@ -5,6 +5,8 @@ import Home from './Pages/Home';
 import Productpage from './Pages/Productpage';
 import Productdetail from './Pages/Productdetail';
 import Dashboard from './Pages/Dashboard';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/productpage" element={<Productpage />} />
         <Route path="/productpage/:productId" element={<Productdetail />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

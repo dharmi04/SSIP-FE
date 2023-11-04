@@ -18,7 +18,7 @@ function NavBar() {
                 {/* <img className="h-8 w-8" src={account} alt="Workflow" /> */}
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4 text-xl">
+                <div className="ml-10 flex items-baseline space-x-16 text-lg ">
                   <a
                     href="#"
                     className="hover:bg-gray-700 text-white px-3 py-2 rounded-md font-medium"
@@ -37,11 +37,11 @@ function NavBar() {
                     href="/dashboard"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                    My Dashboard
+                  Dashboard
                   </a>
 
                   <a
-                    href="#"
+                    href="/login"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Account
