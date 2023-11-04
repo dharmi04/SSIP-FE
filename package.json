@@ -7,13 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "host": "vite --host"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@react-three/drei": "^9.88.10",
+    "@react-three/fiber": "^8.15.9",
+    "@react-three/xr": "^5.7.1",
+    "aframe": "^1.4.2",
+    "ar.js": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.18.0",
     "react-router-dom": "^6.18.0",
+    "react-web-ar": "^1.0.0-beta0",
+    "three": "^0.158.0",
     "vite-plugin-pwa": "^0.16.6"
   },
   "devDependencies": {
