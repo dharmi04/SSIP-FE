@@ -7,6 +7,7 @@ import Productdetail from './Pages/Productdetail';
 import Dashboard from './Pages/Dashboard';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Arpage from './Pages/Arpage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/ar" element={<Arpage />} />
       </Routes>
     </Router>
   );
