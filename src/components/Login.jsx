@@ -4,7 +4,7 @@ import background from '../assets/bgimage.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [mobilenumber, setmobileNumber] = useState('');
   const [name, setName] = useState('');
 
   const handleLogin = () => {
@@ -34,16 +34,16 @@ const Login = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-xl font-medium">
-            Email Address
+            Mobile Number
           </label>
           <input
-            type="email"
+            type="text"
             required
-            id="email"
+            id="number"
             className="w-full p-2 mt-1 border rounded-md"
             placeholder="youremail@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={mobilenumber}
+            onChange={(e) => setmobileNumber(e.target.value)}
           />
         </div>
         <div className="mb-4">

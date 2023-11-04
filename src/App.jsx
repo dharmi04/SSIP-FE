@@ -8,6 +8,8 @@ import Dashboard from './Pages/Dashboard';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Arpage from './Pages/Arpage';
+import Account from './Pages/Account';
+import AddProduct from './Pages/AddProduct'
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/ar" element={<Arpage />} />
+        <Route path="/account" element={<Account />}  />
+        <Route path="/addproduct" element={ <AddProduct/> } />
       </Routes>
     </Router>
   );

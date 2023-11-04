@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { Transition } from "@headlessui/react"
 import hamburger from "../assets/hamburger.svg"
-import cross from "../assets/cross.svg"
-import account from "../assets/account.svg"
+import accountimg from "../assets/account.svg"
 import { RxCross1 } from "react-icons/rx"
-import { Link } from "react-router-dom"
+import Account from "../Pages/Account"
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,21 +28,21 @@ function NavBar() {
                   </Link>
 
                   <Link
-                    href="#"
+                    to="#"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Cart
                   </Link>
 
                   <Link
-                    href="/dashboard"
+                    to="/dashboard"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Dashboard
                   </Link>
 
                   <Link
-                    href="/login"
+                    to="/login"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Account
@@ -69,8 +69,10 @@ function NavBar() {
                   )}
                 </button>
               </div>
+              <Link to="/account">
+  <img src={accountimg} alt="account" className="ml-4" />
+</Link>
 
-              <img src={account} alt="account" className="ml-4" />
             </div>
           </div>
         </div>

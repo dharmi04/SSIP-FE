@@ -13,7 +13,7 @@ const Login = () => {
     console.log('Logging in with email:', email);
   };
 
-  const isFormValid = name && email && password; // Check if all fields are filled
+  const isFormValid = name && number && password; // Check if all fields are filled
 
   return (
     <div className="flex justify-center items-center h-screen bg-cover bg-opacity-50" style={{ backgroundImage: `url(${background})` }}>
@@ -39,7 +39,6 @@ const Login = () => {
           </label>
           <input
             type="text"
-            required
             id="number"
             className="w-full p-2 mt-1 border rounded-md"
             placeholder="Mobile Number"

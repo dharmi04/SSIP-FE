@@ -6,8 +6,6 @@ import {
   BsFillBellFill,
 } from 'react-icons/bs';
 import {
-  BarChart,
-  Bar,
   Cell,
   XAxis,
   YAxis,
@@ -24,7 +22,27 @@ import NavBar from '../components/NavBar';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
 
-function Home() {
+// Sample recent orders data
+const recentOrdersData = [
+  {
+    orderStatus: 'Shipped',
+    productId: 1,
+    customerId: 1,
+  },
+  {
+    orderStatus: 'Pending',
+    productId: 2,
+    customerId: 2,
+  },
+  {
+    orderStatus: 'Delivered',
+    productId: 3,
+    customerId: 3,
+  },
+];
+
+
+function Dashboard() {
   const data = [
     {
       name: 'Product 1',
@@ -66,91 +84,125 @@ function Home() {
 
   return (
     <div>
-        <NavBar />
-        <main className=" text-black font-serif font-bold p-3">
-      <div className="text-5xl flex items-center justify-center">
-        <h3>DASHBOARD</h3>
-      </div>
+      <NavBar />
+      <main className=" text-black font-serif font-bold p-3">
+        <div className="text-5xl flex items-center justify-center">
+          <h3>DASHBOARD</h3>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-        <div className="card bg-accent rounded-md p-2">
-          <div className="card-inner flex items-center justify-between">
-            <h3>TOTAL SALES</h3>
-            <BsFillArchiveFill className="card_icon text-white" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div className="card bg-accent rounded-md p-2">
+            <div className="card-inner flex items-center justify-between">
+              <h3>TOTAL SALES</h3>
+              <BsFillArchiveFill className="card_icon text-white" />
+            </div>
+            <h1>120</h1>
           </div>
-          <h1>120</h1>
-        </div>
-        <div className="card bg-accent rounded-md p-2">
-          <div className="card-inner flex items-center justify-between">
-            <h3>CATEGORIES</h3>
-            <BsFillGrid3X3GapFill className="card_icon text-white" />
+          <div className="card bg-accent rounded-md p-2">
+            <div className="card-inner flex items-center justify-between">
+              <h3>CATEGORIES</h3>
+              <BsFillGrid3X3GapFill className="card_icon text-white" />
+            </div>
+            <h1>5</h1>
           </div>
-          <h1>5</h1>
-        </div>
-        <div className="card bg-accent rounded-md p-2">
-          <div className="card-inner flex items-center justify-between">
-            <h3>CUSTOMERS</h3>
-            <BsPeopleFill className="card_icon text-white" />
+          <div className="card bg-accent rounded-md p-2">
+            <div className="card-inner flex items-center justify-between">
+              <h3>CUSTOMERS</h3>
+              <BsPeopleFill className="card_icon text-white" />
+            </div>
+            <h1>13</h1>
           </div>
-          <h1>13</h1>
-        </div>
-        <div className="card bg-accent rounded-md p-2">
-          <div className="card-inner flex items-center justify-between">
-            <h3>NOTIFICATIONS</h3>
-            <BsFillBellFill className="card_icon text-white" />
+          <div className="card bg-accent rounded-md p-2">
+            <div className="card-inner flex items-center justify-between">
+              <h3>NOTIFICATIONS</h3>
+              <BsFillBellFill className="card_icon text-white" />
+            </div>
+            <h1>18</h1>
           </div>
-          <h1>18</h1>
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="2022" fill="#8884d8" />
-            <Bar dataKey="2023" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
-
-        <ResponsiveContainer width="100%" height={400}>
-          <PieChart>
-            <Pie
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+              width={500}
+              height={300}
               data={data}
-              dataKey="2022"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#8884d8"
-              label
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
             >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
-    </main>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="2022" stroke="#8884d8" activeDot={{ r: 8 }} />
+              <Line type="monotone" dataKey="2023" stroke="#82ca9d" />
+            </LineChart>
+          </ResponsiveContainer>
+
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Pie
+                data={data}
+                dataKey="2022"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={80}
+                fill="#8884d8"
+                label
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+        {/* Recent Orders Table */}
+        <div className="p-4">
+          <h4>Recent Orders</h4>
+          <div className="overflow-x-auto">
+            <table className="table-auto">
+              <thead>
+                <tr>
+                  <th className="px-4 py-2">Order Status</th>
+                  <th className="px-4 py-2">Product ID</th>
+                  <th className="px-4 py-2">Customer ID</th>
+                  <th className="px-4 py-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentOrdersData.map((order) => (
+                  <tr key={order.id}>
+                    <td className="border px-4 py-2">{order.orderStatus}</td>
+                    <td className="border px-4 py-2">{order.productId}</td>
+                    <td className="border px-4 py-2">{order.customerId}</td>
+                    {order.orderStatus === 'Pending' && (
+                      <td className="border px-4 py-2">
+                        <input
+                          type="checkbox"
+                          checked={order.isChecked}
+                          onChange={() => handleCheckboxChange(order.id)}
+                        />
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </div>
-    
   );
 }
 
-export default Home;
+export default Dashboard;
