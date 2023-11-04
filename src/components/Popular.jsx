@@ -2,7 +2,7 @@ import React from 'react'
 
 const Popular = (props) => {
   return (
-    <div className=' rounded-md bg-grey2 p-3 h-[265px] w-[200px]'>
+    <div className=' rounded-md bg-grey2 p-3 h-[250px] w-[200px]'>
        <img src={props.img} alt="products" />
         <h4>{props.name}</h4>
         <p>{props.description}</p>

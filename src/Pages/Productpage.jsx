@@ -10,7 +10,6 @@ const ProductPage = () => {
     { id: 2, img: product, name: 'Product 2', desc: 'Description 2', price: 324 },
     // Add other product objects here
   ];
-
   return (
     <div>
       <div>
@@ -26,5 +25,4 @@ const ProductPage = () => {
     </div>
   );
 };
-
 export default ProductPage;

@@ -62,7 +62,7 @@ const Home = () => {
 
 
       {/* components */}
-      <div>
+      <div className="p-4">
         {selectedCategory === '' && (
           <div className="flex flex-row space-x-4 items-center justify-center mt-10 overflow-x-auto">
             <Popular img={product} name="popular11" desc="hrfhsjm" price="324" />

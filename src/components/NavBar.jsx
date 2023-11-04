@@ -14,11 +14,11 @@ function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                {/* <img
+                <img
                   className="h-8 w-8"
                   src={account}
                   alt="Workflow"
-                /> */}
+                />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4 text-xl">
@@ -37,10 +37,10 @@ function NavBar() {
                   </a>
 
                   <a
-                    href="#"
+                    href="/dashboard"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                    Product
+                  My Dashboard
                   </a>
 
                   <a
@@ -72,7 +72,7 @@ function NavBar() {
 
               </div>
 
-              <img src={account} alt="account" className="ml-4" />
+              {/* <img src={account} alt="account" className="ml-4" /> */}
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ function NavBar() {
                   href="#"
                   className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Product
+                  My Dashboard
                 </a>
 
                 <a

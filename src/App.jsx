@@ -4,6 +4,7 @@ import Explore from './Pages/Explore';
 import Home from './Pages/Home';
 import Productpage from './Pages/Productpage';
 import Productdetail from './Pages/Productdetail';
+import Dashboard from './Pages/Dashboard';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/productpage" element={<Productpage />} />
         <Route path="/productpage/:productId" element={<Productdetail />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

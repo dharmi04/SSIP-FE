@@ -37,7 +37,6 @@ const Productdetail = () => {
       </div>
     );
   }
-
   return (
     <div className="bg-secondary font-serif">
       <div className="flex justify-between items-center mb-4 p-2  ">
@@ -55,7 +54,7 @@ const Productdetail = () => {
 
           </div>
           <p className="text-xl font-medium mb-2 p-2 mt-4">{selectedProduct.desc}</p>
-          <div className="flex items-center space-x-32 text-2xl p-2 mt-4">
+          <div className="flex items-center space-x-30 text-2xl p-2 mt-4">
             <p className="mr-4 flex">Quantity</p>
             <div className='flex'>
               <button
@@ -82,5 +81,4 @@ const Productdetail = () => {
     </div>
   );
 };
-
 export default Productdetail;
