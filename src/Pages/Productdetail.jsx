@@ -76,9 +76,13 @@ const Productdetail = () => {
             <h1 className="text-3xl font-bold mb-2 p-2 mt-4 flex">
               {state.name}
             </h1>
-            <a className="border mt-4 border-accent shadow-sm shadow-black text-black text-lg flex rounded-lg font-bold h-10 p-2 mr-4">
+            <Link
+              to="/ar"
+              className="border mt-4 border-accent shadow-sm shadow-black text-black text-lg flex rounded-lg font-bold h-10 p-2 mr-4"
+              state={state}
+            >
               Try Now
-            </a>
+            </Link>
           </div>
           <p className="text-xl font-medium mb-2 p-2">{state.desc}</p>
           <div className="flex items-center space-x-30 text-2xl p-2 mt-4">

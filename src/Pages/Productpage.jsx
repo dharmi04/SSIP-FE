@@ -32,12 +32,16 @@ const ProductPage = () => {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 px-4 py-6">
         {products.map((product) => (
-          <Link key={product.id} to={`/productpage/${product.id}`}>
+          <Link
+            key={product.id}
+            to={`/productpage/${product.id}`}
+            state={product}
+          >
             <Product
-              img={product.img}
-              name={product.name}
-              desc={product.desc}
-              price={product.price}
+            // img={product.img}
+            // name={product.name}
+            // desc={product.desc}
+            // price={product.price}
             />
           </Link>
         ))}
