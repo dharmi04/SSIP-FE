@@ -2,11 +2,29 @@ import React, { useState } from "react"
 import NavBar from "../components/NavBar"
 import search from "../assets/search.svg"
 import Pots from "../components/Pots"
-import Decorative from "../components/Decorative.jsx"
+import SingleProduct from "../components/SingleProduct.jsx"
 import Vase from "../components/Vase.jsx"
 import Popular from "../components/Popular"
 import product from "../assets/product1.jpeg"
 import { Link } from "react-router-dom"
+
+const products = [
+  {
+    id: "1",
+    name: "Product 1",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante nec ligula volutpat bibendum. Mauris quis est vel ex ultricies fermentum.",
+    price: 324,
+    img: product,
+  },
+  {
+    id: "2",
+    name: "Product 2",
+    desc: "Description 2",
+    price: 324,
+    img: product,
+  },
+  // Add other product objects here
+]
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("Popular")
@@ -78,7 +96,7 @@ const Home = () => {
 
       {/* components */}
       <div className="p-4">
-        {selectedCategory === "" && (
+        {/* {selectedCategory === "" && (
           <div className="flex flex-row space-x-4 items-center justify-center mt-10 ">
             <Popular
               img={product}
@@ -99,8 +117,26 @@ const Home = () => {
               price="3241"
             />
           </div>
-        )}
-        {selectedCategory === "Popular" && (
+        )} */}
+
+        <div
+          className="flex overflow-x-auto whitespace-nowrap w-full gap-4"
+          //   className="flex gap-4 items-center justify-center mt-10 overflow-x-auto
+          // flex-grow-0 flex-shrink-0"
+        >
+          {products.map((product) => (
+            <SingleProduct
+              key={product.id}
+              img={product.img}
+              name={product.name}
+              desc={product.desc}
+              price={product.price}
+              id={product.id}
+            />
+          ))}
+        </div>
+
+        {/* {selectedCategory === "Popular" && (
           <div
             className="flex overflow-x-auto whitespace-nowrap w-full gap-4"
             //   className="flex gap-4 items-center justify-center mt-10 overflow-x-auto
@@ -134,7 +170,7 @@ const Home = () => {
             <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
             <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )
