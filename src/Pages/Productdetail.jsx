@@ -10,6 +10,8 @@ const Productdetail = () => {
   const location = useLocation()
   const { state } = location
 
+  // console.log(state)
+
   const [quantity, setQuantity] = useState(1)
 
   const incrementQuantity = () => {

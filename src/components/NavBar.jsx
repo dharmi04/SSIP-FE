@@ -4,6 +4,7 @@ import hamburger from "../assets/hamburger.svg"
 import cross from "../assets/cross.svg"
 import account from "../assets/account.svg"
 import { RxCross1 } from "react-icons/rx"
+import { Link } from "react-router-dom"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -19,33 +20,33 @@ function NavBar() {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-16 text-lg ">
-                  <a
-                    href="#"
+                  <Link
+                    to="/"
                     className="hover:bg-gray-700 text-white px-3 py-2 rounded-md font-medium"
                   >
                     Home
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href="#"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Cart
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href="/dashboard"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
-                  Dashboard
-                  </a>
+                    Dashboard
+                  </Link>
 
-                  <a
+                  <Link
                     href="/login"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Account
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -86,33 +87,33 @@ function NavBar() {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                  href="#"
+                <Link
+                  to="/home"
                   className="text-gray-300 hover:bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Home
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Cart
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="/dashboard"
                   className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   My Dashboard
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Account
-                </a>
+                </Link>
               </div>
             </div>
           )}

@@ -14,14 +14,14 @@ const products = [
     name: "Product 1",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante nec ligula volutpat bibendum. Mauris quis est vel ex ultricies fermentum.",
     price: 324,
-    img: product,
+    img: "/src/assets/product1.jpeg",
   },
   {
     id: "2",
     name: "Product 2",
     desc: "Description 2",
     price: 324,
-    img: product,
+    img: "/src/assets/product1.jpeg",
   },
   // Add other product objects here
 ]

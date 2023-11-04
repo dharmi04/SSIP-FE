@@ -3,16 +3,19 @@ import { FiChevronRight } from "react-icons/fi"
 import { Link } from "react-router-dom"
 
 const SingleProduct = (props) => {
+  // console.log(props)
   return (
     <>
       <div className="rounded-md bg-white self-start">
         <div className="p-4 mb-4">
           <div className="w-56">
-            <img
-              src={props.img}
-              alt="products"
-              className="w-56 h-52 md:mx-auto mb-2 rounded-md"
-            />
+            <Link to={`/productpage/${props.id}`} state={props}>
+              <img
+                src={props.img}
+                alt="products"
+                className="w-56 h-52 md:mx-auto mb-2 rounded-md"
+              />
+            </Link>
             <h4 className="text-lg font-semibold">{props.name}</h4>
             <p className="text-sm mt-2 whitespace-normal">{props.desc}</p>
           </div>
