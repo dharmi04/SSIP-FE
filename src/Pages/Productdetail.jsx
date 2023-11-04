@@ -78,7 +78,7 @@ const Productdetail = () => {
             </h1>
             <Link
               to="/ar"
-              className="border mt-4 border-accent shadow-sm shadow-black text-black text-lg flex rounded-lg font-bold h-10 p-2 mr-4"
+              className="border mt-4 border-accent shadow-sm shadow-black text-black text-sm flex rounded-lg font-bold h-10 p-2 mr-4"
               state={state}
             >
               Try Now

@@ -16,7 +16,7 @@ const SingleProduct = (props) => {
                 className="w-56 h-52 md:mx-auto mb-2 rounded-md"
               />
             </Link>
-            <h4 className="text-lg font-semibold">{props.name}</h4>
+            <h4 className="text-lg font-semibold whitespace-normal">{props.name}</h4>
             <p className="text-sm mt-2 whitespace-normal">{props.desc}</p>
           </div>
         </div>

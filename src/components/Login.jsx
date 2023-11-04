@@ -6,6 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [mobilenumber, setmobileNumber] = useState('');
   const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     // Implement your login logic here

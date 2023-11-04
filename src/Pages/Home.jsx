@@ -1,29 +1,25 @@
 import React, { useState } from "react"
 import NavBar from "../components/NavBar"
 import search from "../assets/search.svg"
-import Pots from "../components/Pots"
 import SingleProduct from "../components/SingleProduct.jsx"
-import Vase from "../components/Vase.jsx"
-import Popular from "../components/Popular"
-import product from "../assets/product1.jpeg"
 import { Link } from "react-router-dom"
+import product from '../assets/product2.jpg';
 
 const products = [
   {
     id: "1",
-    name: "Product 1",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante nec ligula volutpat bibendum. Mauris quis est vel ex ultricies fermentum.",
+    name: "Artisan-Crafted Earthy Elegance Ceramic Pot",
+    desc: "Elevate your decor with our unique, handcrafted ceramic pot. Meticulously shaped and glazed, it's a perfect blend of art and functionality, adding rustic charm to your space.",
     price: 324,
     img: "/src/assets/product1.jpeg",
   },
   {
     id: "2",
-    name: "Product 2",
-    desc: "Description 2",
+    name: "Artisan-Crafted Woodland Dreamscape",
+    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisans that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
     price: 324,
-    img: "/src/assets/product1.jpeg",
+    img: product ,
   },
-  // Add other product objects here
 ]
 
 const Home = () => {
