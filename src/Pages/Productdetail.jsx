@@ -73,7 +73,7 @@ const Productdetail = () => {
       <div className="mt-10">
         <div className="bg-white rounded-tl-[3rem] rounded-tr-[3rem] shadow-black mt-4 p-3 h-full">
           <div className="flex justify-between">
-            <h1 className="text-3xl font-bold mb-2 p-2 mt-4 flex">
+            <h1 className="text-3xl font-bold mb-2 p-2 mt-4 flex w-[67%]">
               {state.name}
             </h1>
             <Link
