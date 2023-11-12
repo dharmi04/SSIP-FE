@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Arpage from './Pages/Arpage';
 import Account from './Pages/Account';
 import AddProduct from './Pages/AddProduct'
+import BuyNow from './Pages/BuyNow';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/ar" element={<Arpage />} />
         <Route path="/account" element={<Account />}  />
         <Route path="/addproduct" element={ <AddProduct/> } />
+        <Route path="/buynow" element={ <BuyNow /> } />
       </Routes>
     </Router>
   );

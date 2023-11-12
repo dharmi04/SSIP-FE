@@ -108,11 +108,16 @@ const Productdetail = () => {
               <h1 className="text-[#999999]">Price</h1>
               <p className="mb-4 text-2xl font-bold">Rs.{state.price}</p>
             </div>
-
-            <div className="bg-accent text-xl font-medium rounded-md p-2 flex items-center gap-2">
+            <Link
+              to="/buynow"
+              state={state}
+            >
+              <div className="bg-accent text-xl font-medium rounded-md p-2 flex items-center gap-2">
               <BsCartFill />
               Order Now
             </div>
+            </Link>
+            
           </div>
         </div>
       </div>
