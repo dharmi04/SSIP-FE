@@ -11,6 +11,7 @@ import Arpage from './Pages/Arpage';
 import Account from './Pages/Account';
 import AddProduct from './Pages/AddProduct'
 import BuyNow from './Pages/BuyNow';
+import Cart from './Pages/Cart';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/account" element={<Account />}  />
         <Route path="/addproduct" element={ <AddProduct/> } />
         <Route path="/buynow" element={ <BuyNow /> } />
+        <Route path="/cart" component={ <Cart />  } />
       </Routes>
     </Router>
   );
