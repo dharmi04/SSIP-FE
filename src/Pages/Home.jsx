@@ -1,31 +1,14 @@
 import React, { useState } from "react"
 import NavBar from "../components/NavBar"
 import search from "../assets/search.svg"
-import SingleProduct from "../components/SingleProduct.jsx"
+import ProductCard from "../components/Products/ProductCard.jsx"
 import { Link } from "react-router-dom"
-import product from '../assets/product2.jpg';
-
-const products = [
-  {
-    id: "1",
-    name: "Artisan-Crafted Earthy Elegance Ceramic Pot",
-    desc: "Elevate your decor with our unique, handcrafted ceramic pot. Meticulously shaped and glazed, it's a perfect blend of art and functionality, adding rustic charm to your space.",
-    price: 324,
-    img: "/src/assets/product1.jpeg",
-  },
-  {
-    id: "2",
-    name: "Artisan-Crafted Woodland Dreamscape",
-    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisans that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
-    price: 324,
-    img: product ,
-  },
-]
+import products from "../data/products.js"
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("Popular")
   return (
-    <div className="bg-secondary">
+    <div className="bg-secondary pb-10">
       <div className="bg-primary rounded-bl-[70px] rounded-br-[70px]">
         <div>
           <NavBar />
@@ -85,43 +68,18 @@ const Home = () => {
         <p className="flex text-black font-bold flex-grow text-2xl">
           {selectedCategory}
         </p>
-        <Link to="/productpage" className="flex text-grey1 text-base underline">
+        <Link
+          to="/all-products"
+          className="flex text-grey1 text-base underline"
+        >
           View All
         </Link>
       </div>
 
-      {/* components */}
       <div className="p-4">
-        {/* {selectedCategory === "" && (
-          <div className="flex flex-row space-x-4 items-center justify-center mt-10 ">
-            <Popular
-              img={product}
-              name="popular11"
-              desc="hrfhsjm"
-              price="324"
-            />
-            <Popular
-              img={product}
-              name="popular2"
-              desc="hrfhsjm"
-              price="3240"
-            />
-            <Popular
-              img={product}
-              name="popular3"
-              desc="hrfhsjm"
-              price="3241"
-            />
-          </div>
-        )} */}
-
-        <div
-          className="flex overflow-x-auto whitespace-nowrap w-full gap-4"
-          //   className="flex gap-4 items-center justify-center mt-10 overflow-x-auto
-          // flex-grow-0 flex-shrink-0"
-        >
+        <div className="flex overflow-x-auto whitespace-nowrap w-full gap-4">
           {products.map((product) => (
-            <SingleProduct
+            <ProductCard
               key={product.id}
               img={product.img}
               name={product.name}
@@ -131,42 +89,6 @@ const Home = () => {
             />
           ))}
         </div>
-
-        {/* {selectedCategory === "Popular" && (
-          <div
-            className="flex overflow-x-auto whitespace-nowrap w-full gap-4"
-            //   className="flex gap-4 items-center justify-center mt-10 overflow-x-auto
-            // flex-grow-0 flex-shrink-0"
-          >
-            <Decorative img={product} name="dec1" desc="hrfhsjm" price="324" />
-            <Decorative img={product} name="dec2" desc="hrfhsjm" price="3240" />
-            <Decorative img={product} name="dec3" desc="hrfhsjm" price="3241" />
-            <Decorative img={product} name="dec3" desc="hrfhsjm" price="3241" />
-            <Decorative img={product} name="dec3" desc="hrfhsjm" price="3241" />
-            <Decorative img={product} name="dec3" desc="hrfhsjm" price="3241" />
-          </div>
-        )}
-        {selectedCategory === "Vase" && (
-          <div className="flex flex-row space-x-4 items-center justify-center mt-10 overflow-x-auto">
-            <Vase img={product} name="vase1" desc="hrfhsjm" price="324" />
-            <Vase img={product} name="vase2" desc="hrfhsjm" price="3240" />
-            <Vase img={product} name="vase3" desc="hrfhsjm" price="3241" />
-            <Vase img={product} name="vase3" desc="hrfhsjm" price="3241" />
-            <Vase img={product} name="vase3" desc="hrfhsjm" price="3241" />
-          </div>
-        )}
-        {selectedCategory === "Pots" && (
-          <div className="flex flex-row space-x-4 items-center justify-center mt-10 overflow-x-auto">
-            <Pots img={product} name="pot1" desc="hrfhsjm" price="324" />
-            <Pots img={product} name="pot2" desc="hrfhsjm" price="3240" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-            <Pots img={product} name="pot3" desc="hrfhsjm" price="3241" />
-          </div>
-        )} */}
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ const Explore = () => {
           Dorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
       </div>
-      <div class="flex items-center justify-center my-6 ">
+      <div className="flex items-center justify-center my-6 ">
         <Link
           to="/home"
           className="text-black bg-accent w-32 py-2 text-xl font-bold text-center rounded-lg shadow-md shadow-black flex justify-between px-4 items-center gap-1"
