@@ -4,7 +4,7 @@ import hamburger from "../assets/hamburger.svg"
 import accountimg from "../assets/account.svg"
 import { RxCross1 } from "react-icons/rx"
 import Account from "../Pages/Account"
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +28,7 @@ function NavBar() {
                   </Link>
 
                   <Link
-                    to="#"
+                    to="/cart"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium"
                   >
                     Cart
@@ -70,9 +70,8 @@ function NavBar() {
                 </button>
               </div>
               <Link to="/account">
-  <img src={accountimg} alt="account" className="ml-4" />
-</Link>
-
+                <img src={accountimg} alt="account" className="ml-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -86,7 +85,39 @@ function NavBar() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          {(ref) => (
+          <div className="md:hidden" id="mobile-menu">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Link
+                to="/home"
+                className="text-gray-300 hover:bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Home
+              </Link>
+
+              <Link
+                to="/"
+                className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Cart
+              </Link>
+
+              <Link
+                to="/dashboard"
+                className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                My Dashboard
+              </Link>
+
+              <Link
+                to="/login"
+                className="text-gray-300 hover-bg-gray-700 hover-text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Account
+              </Link>
+            </div>
+          </div>
+
+          {/* {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <Link
@@ -118,7 +149,7 @@ function NavBar() {
                 </Link>
               </div>
             </div>
-          )}
+          )} */}
         </Transition>
       </nav>
     </div>
