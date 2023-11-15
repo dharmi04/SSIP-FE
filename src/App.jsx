@@ -1,17 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Explore from './Pages/Explore';
-import Home from './Pages/Home';
-import Productpage from './Pages/Productpage';
-import Productdetail from './Pages/Productdetail';
-import Dashboard from './Pages/Dashboard';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Arpage from './Pages/Arpage';
-import Account from './Pages/Account';
-import AddProduct from './Pages/AddProduct'
-import BuyNow from './Pages/BuyNow';
-import Cart from './Pages/Cart';
+import React from "react"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Explore from "./Pages/Explore"
+import Home from "./Pages/Home"
+import AllProducts from "./Pages/AllProducts"
+import ProductDetail from "./Pages/ProductDetail"
+import Dashboard from "./Pages/Dashboard"
+import Login from "./components/Auth/Login"
+import Signup from "./components/Auth/Signup"
+import AR from "./Pages/AR"
+import Account from "./Pages/Account"
+import AddProduct from "./Pages/AddProduct"
+import BuyNow from "./Pages/BuyNow"
+import Cart from "./Pages/Cart"
+import { Test } from "./Test"
 
 import ScrollToTop from "./ScrollToTop"
 
