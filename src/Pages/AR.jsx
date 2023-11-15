@@ -25,7 +25,7 @@ const AR = () => {
       <div className="w-screen">
         <model-viewer
           alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-          src={`/src/assets/models/ar-${state.id}.glb`}
+          src={`/models/ar-${state.id}.glb`}
           ar
           shadow-intensity="1"
           camera-controls
