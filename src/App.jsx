@@ -12,6 +12,7 @@ import Account from './Pages/Account';
 import AddProduct from './Pages/AddProduct'
 import BuyNow from './Pages/BuyNow';
 import Cart from './Pages/Cart';
+import { Test } from './Test';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/buynow" element={ <BuyNow /> } />
         <Route path="/cart" component={ <Cart />  } />
       </Routes>
+      <Test />
     </Router>
   );
 }
