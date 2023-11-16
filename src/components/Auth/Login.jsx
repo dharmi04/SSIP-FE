@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom" // Import the Link component
+import { Link, useLocation } from "react-router-dom" // Import the Link component
 import background from "../../assets/bgimage.jpg"
 import toast, { Toaster } from "react-hot-toast"
 import axios from "axios"
@@ -7,6 +7,11 @@ import axios from "axios"
 const API_URL = import.meta.env.VITE_API_URL
 
 const Login = () => {
+  const location = useLocation()
+
+  const query = new URLSearchParams(location.search)
+  // console.log(query.get("role"))
+
   const [isLoading, setIsLoading] = useState(false)
 
   const [formData, setFormData] = useState({
@@ -39,9 +44,18 @@ const Login = () => {
     // Send the data to the server
     try {
       setIsLoading(true)
-      const res = await axios.post(`${API_URL}/artisan/login`, formData)
-      const { data } = res
-      console.log(data)
+
+      if (query.get("role") === "artisan") {
+        console.log("Artisan trying to login")
+        const res = await axios.post(`${API_URL}/artisan/login`, formData)
+        const { data } = res
+        console.log(data)
+      } else if (query.get("role") === "user") {
+        console.log("User trying to login")
+        const res = await axios.post(`${API_URL}/user/login`, formData)
+        const { data } = res
+        console.log(data)
+      }
 
       toast.success("Logged in successfully")
       setIsLoading(false)
