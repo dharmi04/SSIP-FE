@@ -15,12 +15,14 @@ import Cart from "./Pages/Cart"
 import { Test } from "./Test"
 import { Main } from "./Layouts/Main"
 import { Dashboard as DashBoardLayout } from "./Layouts/Dashboard"
+import { CartProvider } from "./components/CartContext"
 
 import ScrollToTop from "./ScrollToTop"
 
 function App() {
   return (
     <Router>
+      <CartProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Explore />} />
@@ -42,9 +44,10 @@ function App() {
         <Route path="/account" element={<Account />} />
         {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         <Route path="/buynow" element={<BuyNow />} />
-        <Route path="/cart" component={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       {/* <Test /> */}
+    </CartProvider>
     </Router>
   )
 }
