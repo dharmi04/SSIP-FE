@@ -33,6 +33,7 @@ function App() {
         {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
         {/* <Route path="/product/:productId/ar" element={<AR />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
+        {/** This dashboard not working */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<Account />} />

@@ -4,6 +4,7 @@ import { BsCartPlus } from "react-icons/bs"
 import { VscAccount } from "react-icons/vsc"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { useLocation } from "react-router"
+import { Link } from "react-router-dom"
 
 export const Nav = () => {
   const location = useLocation()
@@ -11,7 +12,7 @@ export const Nav = () => {
   const isHome = location.pathname === "/home"
   const isCart = location.pathname === "/cart"
   const isProfile = location.pathname === "/profile"
-  const isMore = location.pathname === "/more"
+  const isMore = location.pathname === "/dashboard"
 
   return (
     <>
@@ -33,12 +34,14 @@ export const Nav = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col items-center gap-[1px] cursor-pointer">
-          <GiHamburgerMenu
-            className={`text-[22px] ${isMore && "text-accent"}`}
-          />
-          <h1 className={`${isMore && "text-accent font-medium"}`}>more</h1>
-        </div>
+        <Link to="/dashboard">
+          <div className="flex flex-col items-center gap-[1px] cursor-pointer">
+            <GiHamburgerMenu
+              className={`text-[22px] ${isMore && "text-accent"}`}
+            />
+            <h1 className={`${isMore && "text-accent font-medium"}`}>more</h1>
+          </div>
+        </Link>
       </div>
     </>
   )
