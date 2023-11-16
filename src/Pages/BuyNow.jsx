@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import { Nav } from '../components/Nav';
 
-const Checkout = () => {
+const BuyNow = () => {
   const location = useLocation();
   const { state } = location;
 
@@ -22,9 +23,8 @@ const Checkout = () => {
   };
 
   return (
-    <div>
-      <NavBar />
-      <div className="flex flex-col justify-center ">
+    <div className=''>
+      <div className="flex flex-col justify-center">
         <div className="flex items-center p-3">
           <img src={state.img} alt={state.name} className="mr-4 w-24 h-24" />
           <div>
@@ -40,8 +40,9 @@ const Checkout = () => {
           </button>
         </div>
       </div>
+      <Nav />
     </div>
   );
 };
 
-export default Checkout;
+export default BuyNow;

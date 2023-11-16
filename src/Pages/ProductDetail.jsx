@@ -13,6 +13,7 @@ const ProductDetail = () => {
   const { state } = location
 
   const navigate = useNavigate()
+  
 
   return (
     <div className="bg-secondary">

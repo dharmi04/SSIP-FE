@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { BsCartFill } from "react-icons/bs"
+import { useCart } from "../CartContext"
 
 export const ProductInfo = ({ id, name, state, showTryButton }) => {
   const [quantity, setQuantity] = useState(1)
-
+  const { dispatch } = useCart(); 
   const incrementQuantity = () => {
     setQuantity(quantity + 1)
   }
@@ -13,6 +14,17 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
     if (quantity > 1) {
       setQuantity(quantity - 1)
     }
+  }
+  const addToCart=()=>{
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload:{ id,
+        name,
+        quantity, 
+        price: state.price,
+        image: state.image, }
+
+    })
   }
 
   return (
@@ -69,12 +81,12 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
               </div>
             </Link>
 
-            <Link to="/cart" state={state}>
-              <div className="bg-accent  text-xl font-medium rounded-md p-2 flex items-center gap-2">
+             
+              <div className="bg-accent  text-xl font-medium rounded-md p-2 flex items-center gap-2 cursor-pointer" onClick={addToCart} >
                 <BsCartFill />
                 Add to Cart
               </div>
-            </Link>
+            
           </div>
         </div>
       </div>
