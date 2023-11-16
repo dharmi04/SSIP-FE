@@ -25,7 +25,7 @@ export const ArtisanSignup = () => {
   const handleRegister = async () => {
     // Checks: If any field is empty
     if (
-      formData.number === "" ||
+      formData.mobile === "" ||
       formData.name === "" ||
       formData.age === "" ||
       formData.address === "" ||

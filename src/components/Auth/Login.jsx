@@ -1,89 +1,135 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom" // Import the Link component
 import background from "../../assets/bgimage.jpg"
+import toast, { Toaster } from "react-hot-toast"
+import axios from "axios"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 const Login = () => {
-  const [email, setEmail] = useState("")
-  const [mobilenumber, setmobileNumber] = useState("")
-  const [name, setName] = useState("")
-  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    console.log("Logging in with email:", email)
+  const [formData, setFormData] = useState({
+    mobile: "",
+    password: "",
+  })
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
   }
 
-  const isFormValid = name && email && password // Check if all fields are filled
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    //CHECKS: If any field is empty
+    if (formData.mobile === "" || formData.password === "") {
+      toast.error("Please fill all the fields")
+      return
+    }
+
+    //CHECKS: If the mobile number is valid
+    if (formData.mobile.length !== 10) {
+      toast.error("Please enter a valid mobile number")
+      return
+    }
+
+    // Send the data to the server
+    try {
+      setIsLoading(true)
+      const res = await axios.post(`${API_URL}/artisan/login`, formData)
+      const { data } = res
+      console.log(data)
+
+      toast.success("Logged in successfully")
+      setIsLoading(false)
+
+      // TODO: After login, redirect to the where? Need to figure out
+    } catch (error) {
+      console.log("Error Logging in Artisan: 👇")
+      console.log(error)
+
+      setIsLoading(false)
+
+      if (error.response.status == 403) {
+        toast.error("You are not registered")
+      } else if (error.response.status == 401) {
+        toast.error("Invalid credentials")
+      } else {
+        toast.error("Something went wrong")
+      }
+    }
+  }
 
   return (
-    <div
-      className="flex justify-center items-center h-screen bg-cover bg-opacity-50"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <div className="max-w-md md:w-full w-3/4 bg-white bg-opacity-90 rounded-lg shadow-lg p-4">
-        <h2 className="text-2xl text-gray-800 mb-4 text-center justify-center font-bold">
-          Login
-        </h2>
-        <div className="mb-4 text-black">
-          <label htmlFor="name" className="block text-xl font-medium">
-            Name
-          </label>
-          <input
-            type="text"
-            required
-            id="name"
-            className="w-full p-2 mt-1 border rounded-md"
-            placeholder="Myname"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+    <>
+      <Toaster />
+      <div
+        className="flex justify-center items-center h-screen bg-cover bg-opacity-50"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <div className="max-w-md md:w-full w-3/4 bg-white bg-opacity-90 rounded-lg shadow-lg p-4">
+          <h2 className="text-2xl text-gray-800 mb-4 text-center justify-center font-bold">
+            Login
+          </h2>
+          <form>
+            <div className="mb-4">
+              <label htmlFor="mobile" className="block text-xl font-medium">
+                Mobile Number
+              </label>
+              <input
+                type="text"
+                required
+                id="mobile"
+                name="mobile"
+                className="w-full p-2 mt-1 border rounded-md"
+                placeholder="Enter your mobile number"
+                value={formData.number}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-xl font-medium">
+                Password
+              </label>
+              <input
+                type="password"
+                required
+                id="password"
+                name="password"
+                className="w-full p-2 mt-1 border rounded-md"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex items-center justify-center my-6">
+              <button
+                className={`text-black bg-accent py-2 text-xl font-bold text-center rounded-lg shadow-md shadow-black flex justify-center px-4 items-center gap-1
+                  ${
+                    isLoading
+                      ? "cursor-not-allowed opacity-50"
+                      : "opacity-100 px-6"
+                  }
+                `}
+                onClick={handleLogin}
+                disabled={isLoading}
+              >
+                {isLoading ? "Logging in..." : "Login"}
+              </button>
+            </div>
+          </form>
+          <p className="text-gray-600 text-center">
+            Don't have an account? {/* // TODO: Need to Figure out route */}
+            <Link to="#" className="text-blue-500 hover:underline">
+              Sign up
+            </Link>
+          </p>
         </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-xl font-medium">
-            Mobile Number
-          </label>
-          <input
-            type="text"
-            required
-            id="number"
-            className="w-full p-2 mt-1 border rounded-md"
-            placeholder="youremail@example.com"
-            value={mobilenumber}
-            onChange={(e) => setmobileNumber(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-xl font-medium">
-            Password
-          </label>
-          <input
-            type="password"
-            required
-            id="password"
-            className="w-full p-2 mt-1 border rounded-md"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="flex items-center justify-center my-6">
-          <Link
-            to={isFormValid ? "/home" : ""}
-            className={`text-black bg-accent w-32 py-2 text-xl font-bold text-center rounded-lg shadow-md shadow-black flex justify-center px-4 items-center gap-1 ${
-              isFormValid ? "" : ""
-            }`}
-          >
-            <button className="flex">LogIn</button>
-          </Link>
-        </div>
-        <p className="text-gray-600 text-center">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-blue-500 hover:underline">
-            Sign up
-          </Link>
-        </p>
       </div>
-    </div>
+    </>
   )
 }
 
