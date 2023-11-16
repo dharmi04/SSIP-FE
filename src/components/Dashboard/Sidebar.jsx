@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { RxCross1 } from "react-icons/rx"
 import { MdOutlineInventory2 } from "react-icons/md"
 import { BsCartPlus } from "react-icons/bs"
+import { MdAccountTree } from "react-icons/md"
+import { Link } from "react-router-dom"
 
 export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
   // If sidebar is open, then disable scrolling
@@ -29,7 +31,7 @@ export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
 
         {/* // TODO: Give Routes */}
 
-        <div className="text-white ml-12 space-y-4">
+        <div className="text-white ml-12 space-y-6">
           <div className="flex gap-3 items-center cursor-pointer">
             <MdOutlineInventory2 className="text-2xl" />
             <h1 className="text-2xl">View Inventory</h1>
@@ -38,6 +40,12 @@ export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
             <BsCartPlus className="text-2xl" />
             <h1 className="text-2xl">View Orders</h1>
           </div>
+          <Link to="/account" className="mt-2">
+          <div className="flex gap-3 items-center cursor-pointer">
+            <MdAccountTree className="text-2xl" />
+            <h1 className="text-2xl">Account</h1>
+          </div>
+          </Link>
         </div>
       </div>
     </>

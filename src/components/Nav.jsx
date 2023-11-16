@@ -17,10 +17,12 @@ export const Nav = () => {
   return (
     <>
       <div className="bg-white flex justify-between px-4 pt-2 pb-1 items-center fixed w-full bottom-0 text-primary border-t-[rgb(73,75,71)]/[0.5] border-[1px]">
+        <Link to="/home">
         <div className="flex flex-col items-center gap-[1px] cursor-pointer">
           <AiOutlineHome className={`text-[22px] ${isHome && "text-accent"}`} />
           <h1 className={`${isHome && "text-accent font-medium"}`}>home</h1>
         </div>
+        </Link>
         <Link to="/cart">
         <div className="flex flex-col items-center gap-[1px] cursor-pointer">
           <BsCartPlus className={`text-[22px] ${isCart && "text-accent"}`} />

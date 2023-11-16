@@ -36,6 +36,12 @@ const loadCartFromLocalStorage = () => {
   return storedCart ? JSON.parse(storedCart) : [];
 };
 
+// const loadCartFromLocalStorage = () => {
+//   // Reset localStorage when loading the cart
+//   localStorage.removeItem('cart');
+//   return [];
+// };
+
 
 const initialState = {
   cart: loadCartFromLocalStorage(),
