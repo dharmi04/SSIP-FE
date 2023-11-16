@@ -1,6 +1,8 @@
 import React from 'react';
 import { useCart } from '../components/CartContext';
 import { Nav } from '../components/Nav';
+import { BsTrash } from 'react-icons/bs';
+
 
 
 
@@ -20,10 +22,13 @@ const Cart = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8 bg-white text-black">
-      <h2 className="text-2xl font-semibold mb-4">Your Cart</h2>
+    <div>
 
-      <div className="flex flex-wrap">
+      <h2 className=" mb-4 text-center bg-accent rounded-bl-2xl rounded-br-2xl text-3xl text-black font-bold pb-3 pt-3 font-serif">Your Cart</h2>
+    <div className="container mx-auto mt-8 text-xl">
+      
+
+      <div className="flex flex-wrap p-3">
         {cart.map((item, index) => (
           <div key={index} className="flex items-center mb-4">
              <img src={item.image} alt={item.name} className="mr-4 w-24 h-24" />
@@ -32,23 +37,25 @@ const Cart = () => {
               <p>Quantity: {item.quantity}</p>
               <p>Price: Rs.{item.price * item.quantity}</p>
               <button
-                className="text-red-500 hover:text-red-700 font-semibold"
+                className="text-white hover:text-red-700 text-xl font-semibold pt-3"
                 onClick={() => removeFromCart(item.id)}
               >
-                Remove from Cart
+                <BsTrash />
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 p-3">
         <hr className="border-t border-gray-300 my-4" />
 
         <div className="flex justify-end">
           <div className="text-xl font-semibold">Total Price: Rs.{totalPrice}</div>
         </div>
       </div>
+    </div>
+    <Nav />
     </div>
   );
 };
