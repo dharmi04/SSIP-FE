@@ -11,10 +11,10 @@ const AR = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-secondary font-serif">
+    <div className="bg-secondary">
       <div className="flex justify-between items-center mb-4 px-4  pt-4">
         <FiChevronLeft
-          className="text-3xl"
+          className="text-3xl text-black cursor-pointer"
           onClick={() => {
             navigate(-1) // Go back to previous page
           }}

@@ -9,8 +9,13 @@ export default {
         secondary: "#DBDBDB",
         grey1: "#3D3E3C",
         grey2: "rgba(219, 219, 219, 0.7)",
+        grey3: "#1e1e1e",
+      },
+      fontFamily: {
+        sans: ["DM Sans", "sans-serif"],
+        serif: ["DM Serif Display", "serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }

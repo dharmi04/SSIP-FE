@@ -8,11 +8,11 @@ import { Link } from "react-router-dom"
 
 const Explore = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden bg-secondary">
       <div className="bg-primary">
         <p
-          className="text-white font-bold text-5xl text-center items-center font-serif pt-10 bg-primary 
-        pb-4
+          className="text-white text-5xl text-center items-center pt-10 bg-primary 
+        pb-4 font-serif
         "
         >
           KalaSangam
@@ -28,19 +28,19 @@ const Explore = () => {
         </div>
       </div>
       <div className=" items-center justify-center">
-        <p className="text-black font-extrabold text-5xl font-serif text-center mt-10">
+        <p className="text-black text-5xl font-serif text-center mt-10">
           Find the Best Collection
         </p>
-        <p className="text-black font-medium text-2xl font-serif text-center mt-5">
+        <p className="text-[#1e1e1e] text-2xl font-sans text-center mt-5">
           Dorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
       </div>
       <div className="flex items-center justify-center my-6 ">
         <Link
           to="/home"
-          className="text-black bg-accent w-32 py-2 text-xl font-bold text-center rounded-lg shadow-md shadow-black flex justify-between px-4 items-center gap-1"
+          className="text-black bg-accent w-32 py-2 text-[22px] text-center rounded-lg shadow-md shadow-black flex justify-between px-4 items-center gap-1 font-sans"
         >
-          <button className="flex">Explore</button>
+          <button className="flex ">Explore</button>
 
           <div>
             <FiChevronRight className="text-2xl font-semibold" />
