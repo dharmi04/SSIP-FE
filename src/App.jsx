@@ -7,6 +7,7 @@ import ProductDetail from "./Pages/ProductDetail"
 import Analytics from "./Pages/Dashboard/Analytics"
 import Login from "./components/Auth/Login"
 import { ArtisanSignup } from "./components/Auth/ArtisanSignup"
+import { UserSignup } from "./components/Auth/UserSignup"
 import AR from "./Pages/AR"
 import Account from "./Pages/Account"
 import AddProduct from "./Pages/AddProduct"
@@ -41,6 +42,7 @@ function App() {
         </Route>
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
+        <Route path="/auth/signup/user" element={<UserSignup />} />
         <Route path="/account" element={<Account />} />
         {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         <Route path="/buynow" element={<BuyNow />} />
