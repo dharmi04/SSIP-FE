@@ -4,7 +4,7 @@ import Explore from "./Pages/Explore"
 import Home from "./Pages/Home"
 import AllProducts from "./Pages/AllProducts"
 import ProductDetail from "./Pages/ProductDetail"
-import Dashboard from "./Pages/Dashboard"
+import Analytics from "./Pages/Dashboard/Analytics"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Signup"
 import AR from "./Pages/AR"
@@ -14,6 +14,7 @@ import BuyNow from "./Pages/BuyNow"
 import Cart from "./Pages/Cart"
 import { Test } from "./Test"
 import { Main } from "./Layouts/Main"
+import { Dashboard as DashBoardLayout } from "./Layouts/Dashboard"
 
 import ScrollToTop from "./ScrollToTop"
 
@@ -32,12 +33,14 @@ function App() {
         {/* <Route path="/all-products" element={<AllProducts />} /> */}
         {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
         {/* <Route path="/product/:productId/ar" element={<AR />} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        {/** This dashboard not working */}
+        <Route path="/dashboard" element={<DashBoardLayout />}>
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="add/product" element={<AddProduct />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/addproduct" element={<AddProduct />} />
+        {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/cart" component={<Cart />} />
       </Routes>

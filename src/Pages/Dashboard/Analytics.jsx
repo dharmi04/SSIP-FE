@@ -19,7 +19,7 @@ import {
   PieChart,
   Pie,
 } from "recharts"
-import NavBar from "../components/NavBar"
+import NavBar from "../../components/NavBar"
 
 const COLORS = [
   "#0088FE",
@@ -49,7 +49,7 @@ const recentOrdersData = [
   },
 ]
 
-export default function Dashboard() {
+export default function Analytics() {
   const data = [
     {
       name: "Product 1",
@@ -100,10 +100,10 @@ export default function Dashboard() {
 
   return (
     <div className="bg-secondary">
-      <NavBar />
+      {/* <NavBar /> */}
       <main className=" text-black font-sans p-3">
         <div className="text-5xl flex items-center justify-center font-serif">
-          <h3>DASHBOARD</h3>
+          <h3>Analytics</h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">

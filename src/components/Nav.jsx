@@ -34,7 +34,7 @@ export const Nav = () => {
           </h1>
         </div>
 
-        <Link to="/dashboard">
+        <Link to="/dashboard/analytics">
           <div className="flex flex-col items-center gap-[1px] cursor-pointer">
             <GiHamburgerMenu
               className={`text-[22px] ${isMore && "text-accent"}`}
