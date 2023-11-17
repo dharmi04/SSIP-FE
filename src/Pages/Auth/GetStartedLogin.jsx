@@ -64,6 +64,18 @@ export const GetStartedLogin = () => {
                 </div>
               </button>
             </div>
+
+            <p className="text-gray-700 text-base mt-4">
+              Don't have an account?{" "}
+              <span
+                className="text-accent cursor-pointer"
+                onClick={() => {
+                  navigate("/auth/get-started/register")
+                }}
+              >
+                Register here
+              </span>
+            </p>
             <button
               className={` text-xl px-5 pb-2 py-2 rounded-md mt-8 
                 ${
