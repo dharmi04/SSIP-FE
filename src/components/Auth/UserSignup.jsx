@@ -1,12 +1,18 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom" // Import the Link component
+import { Link, useNavigate } from "react-router-dom" // Import the Link component
 import background from "../../assets/bgimage.jpg"
 import toast, { Toaster } from "react-hot-toast"
 import axios from "axios"
+import { useAuthStore } from "../../store/authStore"
 
 const API_URL = import.meta.env.VITE_API_URL
 
 export const UserSignup = () => {
+  const navigate = useNavigate()
+
+  const setAccssToken = useAuthStore((state) => state.setAccessToken)
+  const setRole = useAuthStore((state) => state.setRole)
+
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     mobile: "",
@@ -42,14 +48,20 @@ export const UserSignup = () => {
     // Send the data to the server
     try {
       setIsLoading(true)
-      const res = await axios.post(`${API_URL}/user/register`, formData)
+      const res = await axios.post(`${API_URL}/user/register`, formData, {
+        withCredentials: true,
+      })
       // console.log(res)
       const { data } = res
       console.log(data)
       setIsLoading(false)
       toast.success("Registered Successfully")
 
-      // TODO: Once the user is registered, redirect them to either login page or dashboard
+      setAccssToken(data.accessToken)
+      setRole("user")
+
+      // ? Once the user is registered, redirect them to either login page or home page
+      navigate("/home")
     } catch (error) {
       console.log("Error Registering Artisan: 👇")
       console.log(error)

@@ -1,16 +1,21 @@
 import React, { useState } from "react"
-import { Link, useLocation } from "react-router-dom" // Import the Link component
+import { Link, useLocation, useNavigate } from "react-router-dom" // Import the Link component
 import background from "../../assets/bgimage.jpg"
 import toast, { Toaster } from "react-hot-toast"
 import axios from "axios"
+import { useAuthStore } from "../../store/authStore"
 
 const API_URL = import.meta.env.VITE_API_URL
 
 const Login = () => {
+  const navigate = useNavigate()
   const location = useLocation()
 
   const query = new URLSearchParams(location.search)
   // console.log(query.get("role"))
+
+  const setAccessToken = useAuthStore((state) => state.setAccessToken)
+  const setRole = useAuthStore((state) => state.setRole)
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -47,14 +52,30 @@ const Login = () => {
 
       if (query.get("role") === "artisan") {
         console.log("Artisan trying to login")
-        const res = await axios.post(`${API_URL}/artisan/login`, formData)
+        const res = await axios.post(`${API_URL}/artisan/login`, formData, {
+          withCredentials: true,
+        })
         const { data } = res
         console.log(data)
+
+        setAccessToken(data.token)
+        setRole("artisan")
+
+        // If artisan, then navigate to the dashboard
+        navigate("/dashboard/analytics")
       } else if (query.get("role") === "user") {
         console.log("User trying to login")
-        const res = await axios.post(`${API_URL}/user/login`, formData)
+        const res = await axios.post(`${API_URL}/user/login`, formData, {
+          withCredentials: true,
+        })
         const { data } = res
         console.log(data)
+
+        setAccessToken(data.token)
+        setRole("user")
+
+        // If user, then nvigate to home
+        navigate("/home")
       }
 
       toast.success("Logged in successfully")

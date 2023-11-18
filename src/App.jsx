@@ -1,5 +1,10 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from "react-router-dom"
 import Explore from "./Pages/Explore"
 import Home from "./Pages/Home"
 import AllProducts from "./Pages/AllProducts"
@@ -17,8 +22,11 @@ import { Test } from "./Test"
 import { Main } from "./Layouts/Main"
 import { Dashboard as DashBoardLayout } from "./Layouts/Dashboard"
 import { CartProvider } from "./components/CartContext"
+import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
 
 import ScrollToTop from "./ScrollToTop"
+import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
+import { Profile } from "./Pages/User/Profile"
 
 function App() {
   return (
@@ -44,7 +52,7 @@ function App() {
         <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
         <Route path="/auth/signup/user" element={<UserSignup />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/addproduct" element={<AddProduct />} />
+        {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
