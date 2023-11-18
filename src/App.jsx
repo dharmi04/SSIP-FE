@@ -1,5 +1,10 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from "react-router-dom"
 import Explore from "./Pages/Explore"
 import Home from "./Pages/Home"
 import AllProducts from "./Pages/AllProducts"
@@ -17,39 +22,52 @@ import { Test } from "./Test"
 import { Main } from "./Layouts/Main"
 import { Dashboard as DashBoardLayout } from "./Layouts/Dashboard"
 import { CartProvider } from "./components/CartContext"
+import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
 
 import ScrollToTop from "./ScrollToTop"
+import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
+import { Profile } from "./Pages/User/Profile"
 
 function App() {
   return (
     <Router>
       <CartProvider>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Explore />} />
-        <Route path="/" element={<Main />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="all-products" element={<AllProducts />} />
-          <Route path="product/:productId" element={<ProductDetail />} />
-          <Route path="product/:productId/ar" element={<AR />} />
-        </Route>
-        {/* <Route path="/all-products" element={<AllProducts />} /> */}
-        {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
-        {/* <Route path="/product/:productId/ar" element={<AR />} /> */}
-        <Route path="/dashboard" element={<DashBoardLayout />}>
-          <Route path="analytics" element={<Analytics />} />
-          <Route path="add/product" element={<AddProduct />} />
-        </Route>
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
-        <Route path="/auth/signup/user" element={<UserSignup />} />
-        <Route path="/account" element={<Account />} />
-        {/* <Route path="/addproduct" element={<AddProduct />} /> */}
-        <Route path="/buynow" element={<BuyNow />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-      {/* <Test /> */}
-    </CartProvider>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Explore />} />
+          <Route path="/" element={<Main />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="all-products" element={<AllProducts />} />
+            <Route path="product/:productId" element={<ProductDetail />} />
+            <Route path="product/:productId/ar" element={<AR />} />
+
+            {/* Auth Routes */}
+            <Route path="auth" element={<Outlet />}>
+              <Route
+                path="get-started/register"
+                element={<GetStartedRegistration />}
+              />
+              <Route path="get-started/login" element={<GetStartedLogin />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup/artisan" element={<ArtisanSignup />} />
+              <Route path="signup/user" element={<UserSignup />} />
+            </Route>
+          </Route>
+          {/* <Route path="/all-products" element={<AllProducts />} /> */}
+          {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
+          {/* <Route path="/product/:productId/ar" element={<AR />} /> */}
+          <Route path="/dashboard" element={<DashBoardLayout />}>
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="add/product" element={<AddProduct />} />
+          </Route>
+          <Route path="/account" element={<Account />} />
+          {/* <Route path="/addproduct" element={<AddProduct />} /> */}
+          <Route path="/buynow" element={<BuyNow />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+        {/* <Test /> */}
+      </CartProvider>
     </Router>
   )
 }
