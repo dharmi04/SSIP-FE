@@ -55,6 +55,7 @@ function App() {
         {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/auth/get-started/login" element={<GetStartedLogin />} />
       </Routes>
       {/* <Test /> */}
     </CartProvider>
