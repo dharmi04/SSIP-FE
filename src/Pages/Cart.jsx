@@ -37,7 +37,7 @@ const Cart = () => {
               <p>Quantity: {item.quantity}</p>
               <p>Price: Rs.{item.price * item.quantity}</p>
               <button
-                className="text-white hover:text-red-700 text-xl font-semibold pt-3"
+                className="text-black hover:text-red-700 text-xl font-semibold pt-3"
                 onClick={() => removeFromCart(item.id)}
               >
                 <BsTrash />

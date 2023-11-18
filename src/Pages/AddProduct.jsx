@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import NavBar from "../components/NavBar"
+import { Nav } from "../components/Nav"
 
 const API_URL = "http://192.168.140.61:3000/api/v1/product/add"
 // const API_URL = "http://192.168.140.61:3000/api/v1/test"
@@ -65,7 +66,6 @@ const AddProduct = () => {
   return (
     <div>
       <div>
-        <NavBar />
       </div>
       <div className="p-3 items-start justify-start">
         <h2 className="text-3xl text-black font-bold">Add New Product</h2>
@@ -116,6 +116,7 @@ const AddProduct = () => {
           Add Product
         </button>
       </form>
+      <Nav />
     </div>
   )
 }
