@@ -26,6 +26,7 @@ import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
 
 import ScrollToTop from "./ScrollToTop"
 import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
+import { Profile } from "./Pages/User/Profile"
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           {/* <Route path="/addproduct" element={<AddProduct />} /> */}
           <Route path="/buynow" element={<BuyNow />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         {/* <Test /> */}
       </CartProvider>

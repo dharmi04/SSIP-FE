@@ -25,6 +25,9 @@ export const Nav = () => {
   const role = useAuthStore((state) => state.role)
   const setRole = useAuthStore((state) => state.setRole)
 
+  // console.log(accssToken)
+  // console.log(role)
+
   useEffect(() => {
     const cookie = document.cookie
     // console.log(document.cookie)
@@ -67,7 +70,13 @@ export const Nav = () => {
           </div>
         </Link>
 
-        <Link to={accssToken ? "#" : "/auth/get-started/login"}>
+        <Link
+          to={
+            accssToken && role === "user"
+              ? "/profile"
+              : "/auth/get-started/login"
+          }
+        >
           <div className="flex flex-col items-center gap-[1px] cursor-pointer">
             <VscAccount
               className={`text-[22px] ${
