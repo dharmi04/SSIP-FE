@@ -50,10 +50,12 @@ export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
         {/* // TODO: Give Routes */}
 
         <div className="text-white ml-12 space-y-4">
-          <div className="flex gap-3 items-center cursor-pointer">
-            <MdOutlineInventory2 className="text-2xl" />
-            <h1 className="text-2xl">View Inventory</h1>
-          </div>
+          <Link to="/artisians/inventory">
+            <div className="flex gap-3 items-center cursor-pointer">
+              <MdOutlineInventory2 className="text-2xl" />
+              <h1 className="text-2xl">View Inventory</h1>
+            </div>
+          </Link>
           <div className="flex gap-3 items-center cursor-pointer">
             <BsCartPlus className="text-2xl" />
             <h1 className="text-2xl">View Orders</h1>

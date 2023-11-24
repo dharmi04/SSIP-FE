@@ -2,12 +2,13 @@
 import React, { useState } from "react"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
-import { Nav } from "../components/Nav"
-
+import { Nav } from "../../components/Nav"
 
 const API_URL = import.meta.env.VITE_API_URL
 
 const AddProduct = () => {
+  const [loading, setLoading] = useState(false)
+
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -42,18 +43,33 @@ const AddProduct = () => {
     formDataToSend.append("description", formData.description)
     formDataToSend.append("images", formData.images) // Append the selected file
 
-    try{
-      const response = await axios.post(`${API_URL}/product/add`, formDataToSend);
-      console.log(response.data.message);
+    try {
+      setLoading(true)
+      const response = await axios.post(
+        `${API_URL}/product/add`,
+        formDataToSend
+      )
+      console.log(response.data.message)
       toast.success("Product add successfully")
-    } catch (error){
-      console.log(error);
+      setLoading(false)
+
+      // Clear the form
+      setFormData({
+        name: "",
+        price: "",
+        description: "",
+        images: null,
+      })
+    } catch (error) {
+      console.log(error)
+      toast.error("Error adding product")
+      setLoading(false)
     }
   }
 
   return (
-    <div>
-       <Toaster position="top-right" reverseOrder={false} />
+    <div className="bg-secondary min-h-screen">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="p-3 items-start justify-start">
         <h2 className="text-3xl text-black font-bold">Add New Product</h2>
       </div>
@@ -97,10 +113,13 @@ const AddProduct = () => {
           />
         </div>
         <button
-          className="bg-accent text-center p-2 text-2xl rounded-md items-center justify-center mt-3"
+          className={`bg-accent text-center p-2 text-2xl rounded-md items-center justify-center mt-3
+            ${loading ? "opacity-50 cursor-not-allowed" : ""}
+          `}
           onClick={handleSubmit}
+          disabled={loading}
         >
-          Add Product
+          {loading ? "Adding Product..." : "Add Product"}
         </button>
       </form>
       <Nav />
