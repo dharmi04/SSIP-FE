@@ -1,13 +1,29 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { Link, useNavigate } from "react-router-dom"
 import CatalogProduct from "../components/Products/CatalogProduct"
 // import product from "../assets/product1.jpeg"
 // import NavBar from "../components/NavBar"
 import products from "../data/products"
 import { IoChevronBack } from "react-icons/io5"
+import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL
 const AllProducts = () => {
   const navigate = useNavigate()
+  const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_URL}/products`);
+  //       setProducts(response.data.products);
+  //     } catch (error) {
+  //       console.error('Error fetching products:', error);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  // }, []); 
 
   return (
     <div className="bg-white pb-8">

@@ -158,7 +158,7 @@ const Login = () => {
           </form>
           <p className="text-gray-600 text-center">
             Don't have an account? {/* // TODO: Need to Figure out route */}
-            <Link to="#" className="text-blue-500 hover:underline">
+            <Link to="/auth/signup/user" className="text-blue-500 hover:underline">
               Sign up
             </Link>
           </p>

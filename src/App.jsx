@@ -27,6 +27,7 @@ import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
 import ScrollToTop from "./ScrollToTop"
 import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
 import { Profile } from "./Pages/User/Profile"
+import Inventory from "./artisians/Inventory"
 
 function App() {
   return (
@@ -52,10 +53,11 @@ function App() {
         <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
         <Route path="/auth/signup/user" element={<UserSignup />} />
         <Route path="/account" element={<Account />} />
-        {/* <Route path="/addproduct" element={<AddProduct />} /> */}
+        <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth/get-started/login" element={<GetStartedLogin />} />
+        <Route path="/artisians/inventory" element={<Inventory />} />
       </Routes>
       {/* <Test /> */}
     </CartProvider>
