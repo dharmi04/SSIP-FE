@@ -3,20 +3,20 @@ import axios from 'axios';
 import { Nav } from '../components/Nav';
 
 const Inventory = ({ match }) => {
-  const [products, setProducts] = useState([]);
+//   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchInventory = async () => {
-      try {
-        const response = await axios.get(`/inventory/${match.params.id}`);
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching inventory:', error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchInventory = async () => {
+//       try {
+//         const response = await axios.get(`/inventory/${match.params.id}`);
+//         setProducts(response.data);
+//       } catch (error) {
+//         console.error('Error fetching inventory:', error);
+//       }
+//     };
 
-    fetchInventory();
-  }, [match.params.id]);
+//     fetchInventory();
+//   }, [match.params.id]);
 
   return (
     <div className="container mx-auto text-xl">
