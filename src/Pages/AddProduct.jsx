@@ -1,11 +1,11 @@
 // src/components/AddProduct.js
 import React, { useState } from "react"
 import axios from "axios"
-import NavBar from "../components/NavBar"
 import { Nav } from "../components/Nav"
 
-const API_URL = "http://192.168.140.61:3000/api/v1/product/add"
-// const API_URL = "http://192.168.140.61:3000/api/v1/test"
+// const API_URL = "http://192.168.140.61:3000/api/v1/product/add"
+// // const API_URL = "http://192.168.140.61:3000/api/v1/test"
+const API_URL = import.meta.env.VITE_API_URL
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({

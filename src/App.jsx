@@ -52,7 +52,7 @@ function App() {
         <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
         <Route path="/auth/signup/user" element={<UserSignup />} />
         <Route path="/account" element={<Account />} />
-        {/* <Route path="/addproduct" element={<AddProduct />} /> */}
+        <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth/get-started/login" element={<GetStartedLogin />} />
