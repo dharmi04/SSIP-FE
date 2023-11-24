@@ -14,8 +14,8 @@ export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
   const role = useAuthStore((state) => state.role)
   const accessToken = useAuthStore((state) => state.accessToken)
 
-  // console.log(role)
-  // console.log(accessToken)
+  console.log(role)
+  console.log(accessToken)
 
   // If user is not logged in, then redirect to login page
   useEffect(() => {

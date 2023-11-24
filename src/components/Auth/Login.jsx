@@ -58,7 +58,7 @@ const Login = () => {
         const { data } = res
         console.log(data)
 
-        setAccessToken(data.token)
+        setAccessToken(data.accessToken)
         setRole("artisan")
 
         // If artisan, then navigate to the dashboard
