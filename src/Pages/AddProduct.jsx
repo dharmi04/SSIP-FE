@@ -1,10 +1,10 @@
 // src/components/AddProduct.js
 import React, { useState } from "react"
 import axios from "axios"
+import toast, { Toaster } from "react-hot-toast"
 import { Nav } from "../components/Nav"
 
-// const API_URL = "http://192.168.140.61:3000/api/v1/product/add"
-// // const API_URL = "http://192.168.140.61:3000/api/v1/test"
+
 const API_URL = import.meta.env.VITE_API_URL
 
 const AddProduct = () => {
@@ -31,7 +31,7 @@ const AddProduct = () => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     console.log("clicked")
@@ -42,31 +42,18 @@ const AddProduct = () => {
     formDataToSend.append("description", formData.description)
     formDataToSend.append("images", formData.images) // Append the selected file
 
-    axios
-      .post(`${API_URL}`)
-      .then((response) => {
-        console.log(response)
-        // Clear the form or handle the response as needed
-      })
-      .catch((error) => {
-        console.error(error)
-        // Handle error
-      })
-    // axios.post(`${API_URL}`, formDataToSend)
-    //   .then((response) => {
-    //     console.log(response.data.message);
-    //     // Clear the form or handle the response as needed
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     // Handle error
-    //   });
+    try{
+      const response = await axios.post(`${API_URL}/product/add`, formDataToSend);
+      console.log(response.data.message);
+      toast.success("Product add successfully")
+    } catch (error){
+      console.log(error);
+    }
   }
 
   return (
     <div>
-      <div>
-      </div>
+       <Toaster position="top-right" reverseOrder={false} />
       <div className="p-3 items-start justify-start">
         <h2 className="text-3xl text-black font-bold">Add New Product</h2>
       </div>
