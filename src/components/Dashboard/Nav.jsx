@@ -45,7 +45,7 @@ export const Nav = () => {
           </div>
         </Link>
 
-        <Link to="./add/product">
+        <Link to="/artisian/addproduct">
           <div className="flex flex-col items-center gap-[1px] cursor-pointer">
             <IoMdAddCircleOutline
               className={`text-[22px] ${isAddProduct && "text-accent"}`}
