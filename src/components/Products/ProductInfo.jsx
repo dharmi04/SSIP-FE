@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { BsCartFill } from "react-icons/bs"
 import { useCart } from "../CartContext"
 import axios from "axios"
@@ -7,10 +7,20 @@ import toast, { Toaster } from "react-hot-toast"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-export const ProductInfo = ({ id, name, state, showTryButton }) => {
+export const ProductInfo = ({
+  id,
+  name,
+  description,
+  price,
+  state,
+  showTryButton,
+}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [customerId, setCustomerId] = useState("")
   const [isAddedToCart, setIsAddedToCart] = useState(false)
+
+  const params = useParams()
+  const { productId } = params
 
   useEffect(() => {
     // set from cookie
@@ -18,10 +28,10 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
       .split(";")
       .map((cookie) => cookie.split("="))
       .map((cookie) => ({ key: cookie[0].trim(), value: cookie[1] }))
-    console.log(cookie)
+    // console.log(cookie)
 
     const customerCookie = cookie.find((cookie) => cookie.key === "userId")
-    console.log(customerCookie)
+    // console.log(customerCookie)
 
     if (customerCookie) {
       setCustomerId(customerCookie.value)
@@ -40,12 +50,12 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
     }
   }
   const addToCart = async () => {
-    console.log(customerId)
+    // console.log(customerId)
     setIsLoading(true)
     try {
       const response = await axios.post(`${API_URL}/cart/add`, {
         customer: customerId,
-        productId: "656102cf53b7e77bd2c0f0c9",
+        productId: productId,
       })
       const { data } = response
       console.log(data)
@@ -84,15 +94,20 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
 
             {showTryButton && (
               <Link
-                to={`/product/${id}/ar`}
+                to={`/product/${productId}/ar`}
                 className="border mt-5 border-accent shadow-sm shadow-black text-black text-sm rounded-lg p-2 mr-4 w-[50%] text-center"
-                state={state}
+                state={{
+                  id: id,
+                  name: name,
+                  description: description,
+                  price: price,
+                }}
               >
                 Try Now
               </Link>
             )}
           </div>
-          <p className="text-xl font-sans mb-2 p-2">{state.desc}</p>
+          <p className="text-xl font-sans mb-2 p-2">{description}</p>
           <div className="flex items-center space-x-30 text-2xl p-2 mt-4">
             <p className="mr-4 flex">Quantity</p>
             <div className="flex gap-1">
@@ -114,9 +129,7 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
           <div className="flex flex-row mt-6 items-center justify-between px-2">
             <div>
               <h1 className="text-[#999999]">Price</h1>
-              <p className="mb-4 text-2xl font-bold text-accent">
-                Rs.{state.price}
-              </p>
+              <p className="mb-4 text-2xl font-bold text-accent">Rs.{price}</p>
             </div>
           </div>
           <div className="flex flex-row space-x-8 pb-16">

@@ -13,7 +13,7 @@ const ProductCard = (props) => {
           <div className="w-56">
             <Link to={`/product/${props.id}`} state={props}>
               <img
-                src={props.img}
+                src={props.src}
                 alt="products"
                 className="w-56 h-52 md:mx-auto mb-2 rounded-md"
               />
@@ -26,7 +26,7 @@ const ProductCard = (props) => {
             line-clamp-3 overflow-hidden text-grey3
             "
             >
-              {props.desc}
+              {props.description}
             </p>
           </div>
         </div>

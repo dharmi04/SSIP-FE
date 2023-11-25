@@ -1,5 +1,5 @@
 import React from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import account from "../assets/account.svg"
 import { FiChevronLeft } from "react-icons/fi"
 import { ProductInfo } from "../components/Products/ProductInfo"
@@ -7,6 +7,10 @@ import { ProductInfo } from "../components/Products/ProductInfo"
 const AR = () => {
   const location = useLocation()
   const { state } = location
+  // console.log(state)
+
+  // const params = useParams()
+  // const { productId } = params
 
   const navigate = useNavigate()
 
@@ -38,6 +42,8 @@ const AR = () => {
         id={state.id}
         name={state.name}
         state={state}
+        description={state.description}
+        price={state.price}
         showTryButton={false}
       />
     </div>

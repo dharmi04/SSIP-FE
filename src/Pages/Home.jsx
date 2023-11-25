@@ -5,9 +5,16 @@ import ProductCard from "../components/Products/ProductCard.jsx"
 import { Link } from "react-router-dom"
 import products from "../data/products.js"
 import { Nav } from "../components/Nav.jsx"
+import { useProductsStore } from "../store/productsStore.js"
 
 const Home = () => {
+  const allProducts = useProductsStore((state) => state.allProducts)
+  console.log(allProducts)
+
   const [selectedCategory, setSelectedCategory] = useState("Popular")
+
+  if (allProducts.length === 0) return <h1>Loading...</h1>
+
   return (
     <>
       <div className="bg-secondary pb-12">
@@ -81,14 +88,14 @@ const Home = () => {
 
         <div className="p-4">
           <div className="flex overflow-x-auto whitespace-nowrap w-full gap-4">
-            {products.map((product) => (
+            {allProducts.map((product) => (
               <ProductCard
-                key={product.id}
-                img={product.img}
+                key={product._id}
+                src={product.images[0].url}
                 name={product.name}
-                desc={product.desc}
+                description={product.description}
                 price={product.price}
-                id={product.id}
+                id={product._id}
               />
             ))}
           </div>
