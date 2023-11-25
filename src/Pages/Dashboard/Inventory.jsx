@@ -95,7 +95,7 @@ const Inventory = () => {
             </Link>
             <h2 className="text-lg font-semibold mb-2">{product.name}</h2>
             <p className="text-gray-700 mb-2">{product.description}</p>
-            <p className="flex-start text-sm text-black font-bold">Quantity Available:  {product.qty}</p>
+            <p className="flex-start text-sm text-black font-bold">Quantity Available: {product.qty}</p>
             <span className="flex space-x-7">
 
             <p className="flex-start text-sm text-black font-bold">Price: Rs. {product.price}</p>

@@ -18,6 +18,7 @@ export const UserSignup = () => {
     mobile: "",
     name: "",
     password: "",
+    address:""
   })
 
   const handleChange = (e) => {
@@ -63,7 +64,7 @@ export const UserSignup = () => {
       // ? Once the user is registered, redirect them to either login page or home page
       navigate("/home")
     } catch (error) {
-      console.log("Error Registering Artisan: 👇")
+      console.log("Error Registering User: 👇")
       console.log(error)
 
       if (error.response.status == 403) {
@@ -123,6 +124,21 @@ export const UserSignup = () => {
                 className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter your name"
                 value={formData.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4 text-black">
+              <label htmlFor="name" className="block text-xl font-medium">
+                Address
+              </label>
+              <input
+                type="text"
+                required
+                id="address"
+                name="address"
+                className="w-full p-2 mt-1 border rounded-md"
+                placeholder="Enter your address"
+                value={formData.address}
                 onChange={handleChange}
               />
             </div>
