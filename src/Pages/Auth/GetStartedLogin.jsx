@@ -11,7 +11,7 @@ export const GetStartedLogin = () => {
       navigate("/auth/login?role=user")
     }
     if (selectedOption === "seller") {
-      navigate("/auth/login?role=artisan")
+      navigate("/auth/login?role=artisian")
     }
   }
 

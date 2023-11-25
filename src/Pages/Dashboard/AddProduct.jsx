@@ -13,6 +13,7 @@ const AddProduct = () => {
     name: "",
     price: "",
     description: "",
+    qty:0,
     images: null, // For file input
   })
 
@@ -41,6 +42,7 @@ const AddProduct = () => {
     formDataToSend.append("name", formData.name)
     formDataToSend.append("price", formData.price)
     formDataToSend.append("description", formData.description)
+    formDataToSend.append("qty",formData.qty)
     formDataToSend.append("images", formData.images) // Append the selected file
 
     try {
@@ -58,6 +60,7 @@ const AddProduct = () => {
         name: "",
         price: "",
         description: "",
+        qty:0,
         images: null,
       })
     } catch (error) {
@@ -81,6 +84,16 @@ const AddProduct = () => {
             className="w-full p-2 mt-1 border rounded-md"
             name="name"
             value={formData.name}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label className="block text-xl font-medium">Quantity:</label>
+          <input
+            type="number"
+            className="w-full p-2 mt-1 border rounded-md"
+            name="qty"
+            value={formData.qty}
             onChange={handleInputChange}
           />
         </div>
