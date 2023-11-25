@@ -111,7 +111,10 @@ const Login = () => {
           </h2>
           <form>
             <div className="mb-4">
-              <label htmlFor="mobile" className="block text-xl font-medium">
+              <label
+                htmlFor="mobile"
+                className="block text-xl font-medium text-black"
+              >
                 Mobile Number
               </label>
               <input
@@ -119,14 +122,17 @@ const Login = () => {
                 required
                 id="mobile"
                 name="mobile"
-                className="w-full p-2 mt-1 border rounded-md"
+                className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter your mobile number"
                 value={formData.number}
                 onChange={handleChange}
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className="block text-xl font-medium">
+              <label
+                htmlFor="password"
+                className="block text-xl font-medium text-black"
+              >
                 Password
               </label>
               <input
@@ -134,7 +140,7 @@ const Login = () => {
                 required
                 id="password"
                 name="password"
-                className="w-full p-2 mt-1 border rounded-md"
+                className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
@@ -158,7 +164,10 @@ const Login = () => {
           </form>
           <p className="text-gray-600 text-center">
             Don't have an account? {/* // TODO: Need to Figure out route */}
-            <Link to="/auth/signup/user" className="text-blue-500 hover:underline">
+            <Link
+              to="/auth/signup/user"
+              className="text-blue-500 hover:underline"
+            >
               Sign up
             </Link>
           </p>

@@ -92,21 +92,27 @@ export const UserSignup = () => {
           </h2>
           <form>
             <div className="mb-4 text-black">
-              <label htmlFor="mobile" className="block text-xl font-medium">
+              <label
+                htmlFor="mobile"
+                className="block text-xl font-medium text-black"
+              >
                 Mobile Number
               </label>
               <input
                 type="text"
                 id="mobile"
                 name="mobile"
-                className="w-full p-2 mt-1 border rounded-md"
+                className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter your mobile number"
                 value={formData.number}
                 onChange={handleChange}
               />
             </div>
             <div className="mb-4 text-black">
-              <label htmlFor="name" className="block text-xl font-medium">
+              <label
+                htmlFor="name"
+                className="block text-xl font-medium text-black"
+              >
                 Name
               </label>
               <input
@@ -114,14 +120,17 @@ export const UserSignup = () => {
                 required
                 id="name"
                 name="name"
-                className="w-full p-2 mt-1 border rounded-md"
+                className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className="block text-xl font-medium">
+              <label
+                htmlFor="password"
+                className="block text-xl font-medium text-black"
+              >
                 Password
               </label>
               <input
@@ -129,7 +138,7 @@ export const UserSignup = () => {
                 required
                 id="password"
                 name="password"
-                className="w-full p-2 mt-1 border rounded-md"
+                className="w-full p-2 mt-1 border rounded-md text-white"
                 placeholder="Enter Strong Password"
                 value={formData.password}
                 onChange={handleChange}

@@ -28,6 +28,8 @@ import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
 import { Profile } from "./Pages/User/Profile"
 import Inventory from "./Pages/Dashboard/Inventory"
 import EditProduct from "./Pages/Dashboard/EditProduct"
+import { PaymentSuccess } from "./components/PaymentSuccess"
+import { ViewOrders } from "./Pages/Dashboard/ViewOrders"
 
 function App() {
   return (
@@ -64,8 +66,11 @@ function App() {
           />
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct />} />
+          <Route path="/success" element={<PaymentSuccess />} />
+
+          <Route path="/artisian/vieworders" element={<ViewOrders />} />
         </Routes>
-        <Test />
+        {/* <Test /> */}
       </CartProvider>
     </Router>
   )

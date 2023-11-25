@@ -56,10 +56,12 @@ export const Sidebar = ({ isSideBarOpen, setIsSideBarOpen, toggleSidebar }) => {
               <h1 className="text-2xl">View Inventory</h1>
             </div>
           </Link>
-          <div className="flex gap-3 items-center cursor-pointer">
-            <BsCartPlus className="text-2xl" />
-            <h1 className="text-2xl">View Orders</h1>
-          </div>
+          <Link to="/artisian/vieworders">
+            <div className="flex gap-3 items-center cursor-pointer">
+              <BsCartPlus className="text-2xl" />
+              <h1 className="text-2xl">View Orders</h1>
+            </div>
+          </Link>
           <div>
             <Link to="/account" className="">
               <div className="flex gap-3 items-center cursor-pointer">
