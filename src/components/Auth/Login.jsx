@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, useLocation, useNavigate } from "react-router-dom" // Import the Link component
+import { Link, redirect, useLocation, useNavigate } from "react-router-dom" // Import the Link component
 import background from "../../assets/bgimage.jpg"
 import toast, { Toaster } from "react-hot-toast"
 import axios from "axios"
@@ -75,7 +75,8 @@ const Login = () => {
         setRole("user")
 
         // If user, then nvigate to home
-        navigate("/home")
+        /navigate("/home")
+        
       }
 
       toast.success("Logged in successfully")
