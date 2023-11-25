@@ -23,11 +23,11 @@ import { Main } from "./Layouts/Main"
 import { Dashboard as DashBoardLayout } from "./Layouts/Dashboard"
 import { CartProvider } from "./components/CartContext"
 import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
-
 import ScrollToTop from "./ScrollToTop"
 import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
 import { Profile } from "./Pages/User/Profile"
 import Inventory from "./Pages/Dashboard/Inventory"
+import EditProduct from "./Pages/Dashboard/EditProduct"
 
 function App() {
   return (
@@ -47,17 +47,18 @@ function App() {
           {/* <Route path="/product/:productId/ar" element={<AR />} /> */}
           <Route path="/dashboard" element={<DashBoardLayout />}>
             <Route path="analytics" element={<Analytics />} />
-            <Route path="add/product" element={<AddProduct />} />
+            {/* <Route path="addproduct" element={<AddProduct />} /> */}
           </Route>
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
           <Route path="/auth/signup/user" element={<UserSignup />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/artisian/addproduct" element={<AddProduct />} />
           <Route path="/buynow" element={<BuyNow />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/auth/get-started/login" element={<GetStartedLogin />} />
           <Route path="/artisians/inventory" element={<Inventory />} />
+          <Route path="/artisian/editproduct" element={<EditProduct/>} />
         </Routes>
         {/* <Test /> */}
       </CartProvider>
