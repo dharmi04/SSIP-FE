@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 // This is component for product card. The cards are shown in Home Page.
 
 const ProductCard = (props) => {
-  // console.log(props)
+  console.log(props)
   return (
     <>
       <div className="rounded-md bg-white self-start font-sans">
@@ -34,7 +34,7 @@ const ProductCard = (props) => {
         <div className="flex bg-grey2 items-center justify-between px-4 py-2 rounded-tl-3xl rounded-tr-3xl shadow-[0px_-2px_4px_0px_rgba(0,0,0,0.25)]">
           <h4 className="text-accent font-medium">Rs.{props.price}</h4>
           <div className="bg-accent rounded-full px-1 py-1">
-            <Link to={`/product/${props._id}`} state={props}>
+            <Link to={`/product/${props.id}`} state={props}>
               <FiChevronRight className="text-2xl text-secondary" />
             </Link>
           </div>
