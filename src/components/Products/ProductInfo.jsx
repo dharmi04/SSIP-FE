@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { BsCartFill } from "react-icons/bs"
 import { useCart } from "../CartContext"
 import axios from "axios"
@@ -18,6 +18,9 @@ export const ProductInfo = ({
   const [isLoading, setIsLoading] = useState(false)
   const [customerId, setCustomerId] = useState("")
   const [isAddedToCart, setIsAddedToCart] = useState(false)
+
+  const params = useParams()
+  const { productId } = params
 
   useEffect(() => {
     // set from cookie
@@ -47,12 +50,12 @@ export const ProductInfo = ({
     }
   }
   const addToCart = async () => {
-    console.log(customerId)
+    // console.log(customerId)
     setIsLoading(true)
     try {
       const response = await axios.post(`${API_URL}/cart/add`, {
         customer: customerId,
-        productId: "656102cf53b7e77bd2c0f0c9",
+        productId: productId,
       })
       const { data } = response
       console.log(data)
@@ -91,9 +94,14 @@ export const ProductInfo = ({
 
             {showTryButton && (
               <Link
-                to={`/product/${id}/ar`}
+                to={`/product/${productId}/ar`}
                 className="border mt-5 border-accent shadow-sm shadow-black text-black text-sm rounded-lg p-2 mr-4 w-[50%] text-center"
-                state={state}
+                state={{
+                  id: id,
+                  name: name,
+                  description: description,
+                  price: price,
+                }}
               >
                 Try Now
               </Link>
