@@ -68,7 +68,7 @@ const AddProduct = () => {
   }
 
   return (
-    <div className="bg-secondary min-h-screen">
+    <div className=" min-h-screen">
       <Toaster position="top-right" reverseOrder={false} />
       <div className="p-3 items-start justify-start">
         <h2 className="text-3xl text-black font-bold">Add New Product</h2>
