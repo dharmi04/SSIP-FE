@@ -9,7 +9,7 @@ const products = [
   {
     id: "2",
     name: "Artisan-Crafted Woodland Dreamscape",
-    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisans that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
+    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisians that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
     price: 324,
     img: "/src/assets/product2.jpg",
   },
@@ -23,7 +23,7 @@ const products = [
   {
     id: "4",
     name: "Artisan-Crafted Woodland Dreamscape",
-    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisans that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
+    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisians that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
     price: 324,
     img: "/src/assets/product2.jpg",
   },
@@ -37,7 +37,7 @@ const products = [
   {
     id: "6",
     name: "Artisan-Crafted Woodland Dreamscape",
-    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisans that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
+    desc: "Experience the enchanting 'Woodland Dreamscape'—a masterpiece by skilled artisians that seamlessly merges nature's beauty with imaginative craftsmanship. It's a gateway to an extraordinary world in your living space",
     price: 324,
     img: "/src/assets/product2.jpg",
   },

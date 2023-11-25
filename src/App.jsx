@@ -25,11 +25,12 @@ import { CartProvider } from "./components/CartContext"
 import { GetStartedRegistration } from "./Pages/Auth/GetStartedRegistration"
 import ScrollToTop from "./ScrollToTop"
 import { GetStartedLogin } from "./Pages/Auth/GetStartedLogin"
-import { Profile } from "./Pages/User/Profile"
+
 import Inventory from "./Pages/Dashboard/Inventory"
 import EditProduct from "./Pages/Dashboard/EditProduct"
 import { PaymentSuccess } from "./components/PaymentSuccess"
 import { ViewOrders } from "./Pages/Dashboard/ViewOrders"
+// import Profile from "./Pages/Profile"
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
             {/* <Route path="addproduct" element={<AddProduct />} /> */}
           </Route>
           <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signup/artisan" element={<ArtisanSignup />} />
+          <Route path="/auth/signup/artisian" element={<ArtisanSignup />} />
           <Route path="/auth/signup/user" element={<UserSignup />} />
           <Route path="/account" element={<Account />} />
           <Route path="/artisian/addproduct" element={<AddProduct />} />
@@ -64,6 +65,7 @@ function App() {
             path="/auth/get-started/register"
             element={<GetStartedRegistration />}
           />
+          {/* <Route path="/profilepage" element={<Profile />} /> */}
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct />} />
           <Route path="/success" element={<PaymentSuccess />} />

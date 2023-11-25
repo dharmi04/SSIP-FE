@@ -50,18 +50,18 @@ const Login = () => {
     try {
       setIsLoading(true)
 
-      if (query.get("role") === "artisan") {
+      if (query.get("role") === "artisian") {
         console.log("Artisan trying to login")
-        const res = await axios.post(`${API_URL}/artisan/login`, formData, {
+        const res = await axios.post(`${API_URL}/artisian/login`, formData, {
           withCredentials: true,
         })
         const { data } = res
         console.log(data)
 
         setAccessToken(data.accessToken)
-        setRole("artisan")
+        setRole("artisian")
 
-        // If artisan, then navigate to the dashboard
+        // If artisian, then navigate to the dashboard
         navigate("/dashboard/analytics")
       } else if (query.get("role") === "user") {
         console.log("User trying to login")
