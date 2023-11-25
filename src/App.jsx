@@ -57,6 +57,7 @@ function App() {
           <Route path="/buynow" element={<BuyNow />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/auth/get-started/login" element={<GetStartedLogin />} />
+          <Route path="/auth/get-started/register" element={<GetStartedRegistration />} />
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct/>} />
         </Routes>
