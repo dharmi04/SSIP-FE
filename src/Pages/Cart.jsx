@@ -2,17 +2,21 @@ import React, { useEffect, useId } from "react"
 import { useCart } from "../components/CartContext"
 import { Nav } from "../components/Nav"
 import { BsTrash } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { Toaster, toast } from "react-hot-toast"
+import { data } from "autoprefixer"
 
 const API_URL = import.meta.env.VITE_API_URL
 
 const Cart = () => {
+  const navigate = useNavigate()
+
   const [cart, setCart] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
   const [totalPrice, setTotalPrice] = React.useState(0)
   const [userId, setUserId] = React.useState()
+  const [isPaymentLoading, setIsPaymentLoading] = React.useState(false)
 
   useEffect(() => {
     const cookie = document.cookie
@@ -95,12 +99,34 @@ const Cart = () => {
     //   },
     // });
   }
-  const handlePayment = () => {
-    // Simulate a delay for demonstration purposes (replace with actual payment logic)
-    setTimeout(() => {
-      console.log("Payment processed for:", state)
-      // Redirect to a thank you page or handle the success message
-    }, 2000)
+  const handlePayment = async () => {
+    console.log("Payment")
+    console.log(cart)
+
+    const products = cart.map((item) => ({
+      id: item._id,
+      qty: 1,
+      name: item.name,
+      price: item.price,
+      artisan: "65587cf31d012006fd40c58d",
+    }))
+    try {
+      setIsPaymentLoading(true)
+      const response = await axios.post(`${API_URL}/checkout`, {
+        customer: userId,
+        products: products,
+      })
+
+      const { data } = response
+      console.log(data)
+
+      // navigate to stripe url that is returned
+      window.location.replace(data)
+    } catch (error) {
+      console.log("Error while checkout")
+      console.log(error)
+      setIsPaymentLoading(false)
+    }
   }
 
   if (isLoading) {
@@ -180,10 +206,13 @@ const Cart = () => {
 
         <div className="flex justify-end mt-4">
           <button
+            className={`bg-accent text-white rounded-lg py-2 px-6 font-bold hover:bg-gray-900
+            ${isPaymentLoading ? "opacity-50 cursor-not-allowed" : ""}
+            `}
             onClick={handlePayment}
-            className="bg-accent text-white rounded-lg py-2 px-6 font-bold hover:bg-gray-900"
+            disabled={isPaymentLoading}
           >
-            Proceed to Payment
+            {isPaymentLoading ? "Processing..." : "Proceed to Payment"}
           </button>
         </div>
       </div>

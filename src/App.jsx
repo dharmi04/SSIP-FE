@@ -34,6 +34,7 @@ function App() {
     <Router>
       <CartProvider>
         <ScrollToTop />
+        <Test />
         <Routes>
           <Route path="/" element={<Explore />} />
           <Route path="/" element={<Main />}>
@@ -64,7 +65,6 @@ function App() {
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct />} />
         </Routes>
-        <Test />
       </CartProvider>
     </Router>
   )
