@@ -15,7 +15,7 @@ const ProductCard = (props) => {
               <img
                 src={props.src}
                 alt="products"
-                className="w-56 h-52 md:mx-auto mb-2 rounded-md"
+                className="w-56 h-52 md:mx-auto mb-2 rounded-md object-cover"
               />
             </Link>
             <h4 className="text-lg font-semibold whitespace-normal text-black">
