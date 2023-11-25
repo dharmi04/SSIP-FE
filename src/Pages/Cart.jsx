@@ -35,7 +35,7 @@ const Cart = () => {
           // console.log(response);
 
           const { data } = response
-          // console.log(data)
+          console.log(data)
           setIsLoading(false)
 
           setCart(data[0]?.product)

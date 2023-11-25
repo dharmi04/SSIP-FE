@@ -51,7 +51,7 @@ export const ArtisanSignup = () => {
     // Send the data to the server
     try {
       setIsLoading(true)
-      const res = await axios.post(`${API_URL}/artisian/register`, formData, {
+      const res = await axios.post(`${API_URL}/artisan/register`, formData, {
         withCredentials: true,
       })
       // console.log(res)
@@ -62,6 +62,10 @@ export const ArtisanSignup = () => {
 
       setAccssToken(data.accessToken)
       setRole("artisian")
+
+      // set to local storage
+      localStorage.setItem("accessToken", data.accessToken)
+      localStorage.setItem("role", "artisian")
 
       // ?: Once the user is registered, redirect them to either login page or dashboard
 

@@ -14,10 +14,12 @@ export const ProductInfo = ({
   price,
   state,
   showTryButton,
+  availableQuantity,
 }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [customerId, setCustomerId] = useState("")
   const [isAddedToCart, setIsAddedToCart] = useState(false)
+  const [selectedMore, setSelectedMore] = useState(false)
 
   const params = useParams()
   const { productId } = params
@@ -42,11 +44,20 @@ export const ProductInfo = ({
   // const { dispatch } = useCart()
   const incrementQuantity = () => {
     setQuantity(quantity + 1)
+
+    if (quantity >= availableQuantity) {
+      toast.error("Cannot add more than available quantity")
+      setSelectedMore(true)
+    }
   }
 
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1)
+
+      if (quantity <= availableQuantity) {
+        setSelectedMore(false)
+      }
     }
   }
   const addToCart = async () => {
@@ -108,6 +119,7 @@ export const ProductInfo = ({
             )}
           </div>
           <p className="text-xl font-sans mb-2 p-2">{description}</p>
+          <p>Available Quantity: {availableQuantity}</p>
           <div className="flex items-center space-x-30 text-2xl p-2 mt-4">
             <p className="mr-4 flex">Quantity</p>
             <div className="flex gap-1">
@@ -144,9 +156,10 @@ export const ProductInfo = ({
               className={`bg-accent  text-xl font-medium rounded-md p-2 flex items-center gap-2
               ${isLoading ? "opacity-50 cursor-not-allowed" : ""}
               ${isAddedToCart ? "opacity-70 cursor-not-allowed" : ""}
+              ${selectedMore ? "opacity-70 cursor-not-allowed" : ""}
               `}
               onClick={addToCart}
-              disabled={isLoading || isAddedToCart}
+              disabled={isLoading || isAddedToCart || selectedMore}
             >
               <BsCartFill />
               {isLoading

@@ -56,6 +56,7 @@ const ProductDetail = () => {
         price={product.price}
         state={state}
         showTryButton={true}
+        availableQuantity={product.qty}
       />
     </div>
   )

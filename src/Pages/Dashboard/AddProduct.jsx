@@ -13,7 +13,7 @@ const AddProduct = () => {
     name: "",
     price: "",
     description: "",
-    qty:0,
+    qty: 0,
     images: null, // For file input
   })
 
@@ -42,7 +42,7 @@ const AddProduct = () => {
     formDataToSend.append("name", formData.name)
     formDataToSend.append("price", formData.price)
     formDataToSend.append("description", formData.description)
-    formDataToSend.append("qty",formData.qty)
+    formDataToSend.append("qty", formData.qty)
     formDataToSend.append("images", formData.images) // Append the selected file
 
     try {
@@ -60,7 +60,7 @@ const AddProduct = () => {
         name: "",
         price: "",
         description: "",
-        qty:0,
+        qty: 0,
         images: null,
       })
     } catch (error) {
@@ -81,7 +81,7 @@ const AddProduct = () => {
           <label className="block text-xl font-medium">Name:</label>
           <input
             type="text"
-            className="w-full p-2 mt-1 border rounded-md"
+            className="w-full p-2 mt-1 border rounded-md text-white"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
@@ -91,7 +91,7 @@ const AddProduct = () => {
           <label className="block text-xl font-medium">Quantity:</label>
           <input
             type="number"
-            className="w-full p-2 mt-1 border rounded-md"
+            className="w-full p-2 mt-1 border rounded-md text-white"
             name="qty"
             value={formData.qty}
             onChange={handleInputChange}
@@ -101,7 +101,7 @@ const AddProduct = () => {
           <label className="block text-xl font-medium">Price:</label>
           <input
             type="number"
-            className="w-full p-2 mt-1 border rounded-md"
+            className="w-full p-2 mt-1 border rounded-md text-white"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
@@ -111,7 +111,7 @@ const AddProduct = () => {
           <label className="block text-xl font-medium">Description:</label>
           <textarea
             name="description"
-            className="w-full p-2 mt-1 border rounded-md"
+            className="w-full p-2 mt-1 border rounded-md text-white"
             value={formData.description}
             onChange={handleInputChange}
           />
