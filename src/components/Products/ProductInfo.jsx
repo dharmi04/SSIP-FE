@@ -7,7 +7,14 @@ import toast, { Toaster } from "react-hot-toast"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-export const ProductInfo = ({ id, name, state, showTryButton }) => {
+export const ProductInfo = ({
+  id,
+  name,
+  description,
+  price,
+  state,
+  showTryButton,
+}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [customerId, setCustomerId] = useState("")
   const [isAddedToCart, setIsAddedToCart] = useState(false)
@@ -18,10 +25,10 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
       .split(";")
       .map((cookie) => cookie.split("="))
       .map((cookie) => ({ key: cookie[0].trim(), value: cookie[1] }))
-    console.log(cookie)
+    // console.log(cookie)
 
     const customerCookie = cookie.find((cookie) => cookie.key === "userId")
-    console.log(customerCookie)
+    // console.log(customerCookie)
 
     if (customerCookie) {
       setCustomerId(customerCookie.value)
@@ -92,7 +99,7 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
               </Link>
             )}
           </div>
-          <p className="text-xl font-sans mb-2 p-2">{state.desc}</p>
+          <p className="text-xl font-sans mb-2 p-2">{description}</p>
           <div className="flex items-center space-x-30 text-2xl p-2 mt-4">
             <p className="mr-4 flex">Quantity</p>
             <div className="flex gap-1">
@@ -114,9 +121,7 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
           <div className="flex flex-row mt-6 items-center justify-between px-2">
             <div>
               <h1 className="text-[#999999]">Price</h1>
-              <p className="mb-4 text-2xl font-bold text-accent">
-                Rs.{state.price}
-              </p>
+              <p className="mb-4 text-2xl font-bold text-accent">Rs.{price}</p>
             </div>
           </div>
           <div className="flex flex-row space-x-8 pb-16">

@@ -9,7 +9,7 @@ import { useProductsStore } from "../store/productsStore.js"
 
 const Home = () => {
   const allProducts = useProductsStore((state) => state.allProducts)
-  // console.log(allProducts)
+  console.log(allProducts)
 
   const [selectedCategory, setSelectedCategory] = useState("Popular")
 
