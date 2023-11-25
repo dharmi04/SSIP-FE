@@ -108,7 +108,7 @@ const Cart = () => {
       qty: 1,
       name: item.name,
       price: item.price,
-      artisan: "65587cf31d012006fd40c58d",
+      artisian: "65587cf31d012006fd40c58d",
     }))
     try {
       setIsPaymentLoading(true)

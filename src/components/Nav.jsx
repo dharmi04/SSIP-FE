@@ -96,7 +96,7 @@ export const Nav = () => {
           </div>
         </Link>
 
-        {role === "artisan" && (
+        {role === "artisian" && (
           <Link to="/dashboard/analytics">
             <div className="flex flex-col items-center gap-[1px] cursor-pointer">
               <GiHamburgerMenu

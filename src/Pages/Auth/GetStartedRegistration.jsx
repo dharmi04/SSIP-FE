@@ -11,7 +11,7 @@ export const GetStartedRegistration = () => {
       navigate("/auth/signup/user")
     }
     if (selectedOption === "seller") {
-      navigate("/auth/signup/artisan")
+      navigate("/auth/signup/artisian")
     }
   }
 
