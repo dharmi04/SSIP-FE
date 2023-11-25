@@ -65,6 +65,7 @@ function App() {
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct />} />
         </Routes>
+        <Test />
       </CartProvider>
     </Router>
   )
