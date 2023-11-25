@@ -166,7 +166,7 @@ export default function Analytics() {
             </LineChart>
           </ResponsiveContainer>
 
-          <ResponsiveContainer width="100%" height={400}>
+          {/* <ResponsiveContainer width="100%" height={400}>
             <PieChart>
               <Pie
                 data={piedata}
@@ -188,7 +188,7 @@ export default function Analytics() {
               <Tooltip />
               <Legend />
             </PieChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer> */}
         </div>
 
         {/* Recent Orders Table */}
