@@ -5,13 +5,13 @@ import { Link } from "react-router-dom"
 // This is component for product card. The cards are shown in Home Page.
 
 const ProductCard = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       <div className="rounded-md bg-white self-start font-sans">
         <div className="p-4 mb-4">
           <div className="w-56">
-            <Link to={`/product/${props._id}`} state={props}>
+            <Link to={`/product/${props.id}`} state={props}>
               <img
                 src={props.src}
                 alt="products"
