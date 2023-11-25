@@ -1,11 +1,35 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { BsCartFill } from "react-icons/bs"
 import { useCart } from "../CartContext"
+import axios from "axios"
+import toast, { Toaster } from "react-hot-toast"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 export const ProductInfo = ({ id, name, state, showTryButton }) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [customerId, setCustomerId] = useState("")
+  const [isAddedToCart, setIsAddedToCart] = useState(false)
+
+  useEffect(() => {
+    // set from cookie
+    const cookie = document.cookie
+      .split(";")
+      .map((cookie) => cookie.split("="))
+      .map((cookie) => ({ key: cookie[0].trim(), value: cookie[1] }))
+    console.log(cookie)
+
+    const customerCookie = cookie.find((cookie) => cookie.key === "userId")
+    console.log(customerCookie)
+
+    if (customerCookie) {
+      setCustomerId(customerCookie.value)
+    }
+  }, [])
+
   const [quantity, setQuantity] = useState(1)
-  const { dispatch } = useCart(); 
+  // const { dispatch } = useCart()
   const incrementQuantity = () => {
     setQuantity(quantity + 1)
   }
@@ -15,20 +39,42 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
       setQuantity(quantity - 1)
     }
   }
-  const addToCart=()=>{
-    dispatch({
-      type: 'ADD_TO_CART',
-      payload:{ id,
-        name,
-        quantity, 
-        price: state.price,
-        image: state.image, }
+  const addToCart = async () => {
+    console.log(customerId)
+    setIsLoading(true)
+    try {
+      const response = await axios.post(`${API_URL}/cart/add`, {
+        customer: customerId,
+        productId: "656102cf53b7e77bd2c0f0c9",
+      })
+      const { data } = response
+      console.log(data)
+      setIsLoading(false)
+      toast.success("Added to cart")
+      setIsAddedToCart(true)
+    } catch (error) {
+      console.log("Error adding to cart")
+      console.log(error)
+      toast.error("Error adding to cart")
+      setIsLoading(false)
+    }
 
-    })
+    // dispatch({
+    //   type: 'ADD_TO_CART',
+    //   payload:{ id,
+    //     name,
+    //     quantity,
+    //     price: state.price,
+    //     image: state.image, }
+
+    // })
   }
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       <div className="mt-10 text-black">
         <div className="bg-white rounded-tl-[3rem] rounded-tr-[3rem] shadow-black mt-4 p-3 h-full">
           <div className="flex justify-between gap-2 items-start">
@@ -73,7 +119,7 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row space-x-8 justify-between pb-16">
+          <div className="flex flex-row space-x-8 pb-16">
             <Link to="/buynow" state={state}>
               <div className="bg-accent text-xl font-medium rounded-md p-2 flex items-center gap-2">
                 <BsCartFill />
@@ -81,12 +127,21 @@ export const ProductInfo = ({ id, name, state, showTryButton }) => {
               </div>
             </Link>
 
-             
-              <div className="bg-accent  text-xl font-medium rounded-md p-2 flex items-center gap-2 cursor-pointer" onClick={addToCart} >
-                <BsCartFill />
-                Add to Cart
-              </div>
-            
+            <button
+              className={`bg-accent  text-xl font-medium rounded-md p-2 flex items-center gap-2
+              ${isLoading ? "opacity-50 cursor-not-allowed" : ""}
+              ${isAddedToCart ? "opacity-70 cursor-not-allowed" : ""}
+              `}
+              onClick={addToCart}
+              disabled={isLoading || isAddedToCart}
+            >
+              <BsCartFill />
+              {isLoading
+                ? "Adding to cart"
+                : isAddedToCart
+                ? "Added to cart"
+                : "Add to cart"}
+            </button>
           </div>
         </div>
       </div>
