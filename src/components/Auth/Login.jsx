@@ -52,7 +52,7 @@ const Login = () => {
 
       if (query.get("role") === "artisian") {
         console.log("Artisan trying to login")
-        const res = await axios.post(`${API_URL}/artisan/login`, formData, {
+        const res = await axios.post(`${API_URL}/artisian/login`, formData, {
           withCredentials: true,
         })
         const { data } = res
