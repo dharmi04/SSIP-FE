@@ -30,6 +30,7 @@ import Inventory from "./Pages/Dashboard/Inventory"
 import EditProduct from "./Pages/Dashboard/EditProduct"
 import { PaymentSuccess } from "./components/PaymentSuccess"
 import { ViewOrders } from "./Pages/Dashboard/ViewOrders"
+import OrderTable from "./components/Dashboard/ViewOrders/OederTable"
 // import Profile from "./Pages/Profile"
 
 function App() {
@@ -69,7 +70,7 @@ function App() {
           <Route path="/artisians/inventory" element={<Inventory />} />
           <Route path="/artisian/editproduct" element={<EditProduct />} />
           <Route path="/success" element={<PaymentSuccess />} />
-
+          <Route path="/vieworderss" element={<OrderTable />} />
           <Route path="/artisian/vieworders" element={<ViewOrders />} />
         </Routes>
         {/* <Test /> */}
